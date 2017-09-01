@@ -7,6 +7,7 @@ public class RandomNumberUsingCoin {
 	// generate random number from 0 to n-1 using a coin
 	// shift previous generated once and concatenate toss outcomes to generate the random number
 	// if max tosses already and generated number is >= n, repeat from the start
+	// O(logn)
 	static int random(int n) {
 		int max = 1;
 		int generated = 0;
