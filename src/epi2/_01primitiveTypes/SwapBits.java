@@ -46,6 +46,11 @@ public class SwapBits {
 		
 		System.out.println(setBitAt(0b101, 0, 0));//4
 		System.out.println(setBitAt(0b101, 1, 1));//7
+		System.out.println(setBitAt(0b0, 16, 1));//65536
+		System.out.println(setBitAt(0b0, 32, 1));//4294967296
+		System.out.println(setBitAt(0b0, 62, 1));//4611686018427387904
+		System.out.println(setBitAt(4611686018427387904L, 62, 0));//0
+		System.out.println(setBitAt(65536, 16, 0));//0
 		System.out.println();
 		
 		System.out.println(swapBits(0b101, 0, 1));//6
