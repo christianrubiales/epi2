@@ -2,6 +2,8 @@ package epi2._01primitiveTypes;
 
 public class SwapBits {
 
+	// get bits at given positions
+	// swap only if bits are different
 	static long swapBits(long n, int i, int j) {
 		short bi = getBitAt(n, i);
 		short bj = getBitAt(n, j);
@@ -14,11 +16,13 @@ public class SwapBits {
 		return n;
 	}
 	
+	// shift number i times then logical OR with 1
 	static short getBitAt(long n, int i) {
 		n >>>= i;
 		return (short) (n & 1);
 	}
 
+	// set a bit using xor with shifted 1
 	static long setBitAt(long n, int i, int b) {
 		long mask = 1L << i;
 		return n ^ mask;
