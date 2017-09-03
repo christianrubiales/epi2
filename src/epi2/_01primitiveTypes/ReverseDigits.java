@@ -4,6 +4,7 @@ public class ReverseDigits {
 	
 	// build the lower digits by multiplying by 10
 	// and decrease the remaining digits by dividing by 10
+	// make sure to process the absolute value
 	static long reverse(long n) {
 		long result = 0;
 		long remaining = Math.abs(n);
@@ -13,12 +14,11 @@ public class ReverseDigits {
 			remaining /= 10;
 		}
 		
-		
 		return n < 0 ? -result : result;
 	}
 
 	public static void main(String[] args) {
-		System.out.println(reverse(123));
+		System.out.println(reverse(123)); // 321
 	}
 
 }
