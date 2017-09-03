@@ -16,7 +16,7 @@ public class SwapBits {
 		return n;
 	}
 	
-	// shift number i times then logical OR with 1
+	// shift number i times then logical AND with 1
 	static short getBitAt(long n, int i) {
 		n >>>= i;
 		return (short) (n & 1);
