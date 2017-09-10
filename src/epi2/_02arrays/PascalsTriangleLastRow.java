@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * @see https://en.wikipedia.org/wiki/Pascal%27s_triangle#Calculating_a_row_or_diagonal_by_itself
+ * Numbers in rows of Pascal's triangle are binomial coefficients nC0, nC1, nC2, ..., nCn
+ * Also, nCk = nC(k-1) x (n + 1 - k)/k
  */
 public class PascalsTriangleLastRow {
 
