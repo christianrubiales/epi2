@@ -44,7 +44,10 @@ public class EvenOddPartitioning {
 	}
 	
 	public static void main(String[] args) {
+		print(new int[] {1,2}, evenOddPartition(new int[] {1,2}));
 		print(new int[] {1,2,3,4,5,6,7,8,9}, evenOddPartition(new int[] {1,2,3,4,5,6,7,8,9}));
+		print(new int[] {1,2,3,4,5,6,7,8,9,10}, evenOddPartition(new int[] {1,2,3,4,5,6,7,8,9,10}));
+		print(new int[] {1,2,3,4,5,6,7,8,9,10,11}, evenOddPartition(new int[] {1,2,3,4,5,6,7,8,9,10,11}));
 		print(new int[] {1,3,5,7,9}, evenOddPartition(new int[] {1,3,5,7,9}));
 		print(new int[] {2,4,6,8,1,3,5,7,9}, evenOddPartition(new int[] {2,4,6,8,1,3,5,7,9}));
 		print(new int[] {2,4,6,8}, evenOddPartition(new int[] {2,4,6,8}));
