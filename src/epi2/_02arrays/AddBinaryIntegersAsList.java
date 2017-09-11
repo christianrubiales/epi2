@@ -71,7 +71,7 @@ public class AddBinaryIntegersAsList {
 			carry = sum / 2;
 		}
 		
-		// if there is a last carry, the list has to expand
+		// if there is a last carry, the list has to grow
 		if (carry == 1) {
 			c.add(0, 1);
 		}
