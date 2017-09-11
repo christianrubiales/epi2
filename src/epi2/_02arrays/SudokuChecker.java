@@ -11,14 +11,14 @@ public class SudokuChecker {
 	static boolean check(int[][] board) {
 		// check rows
 		for (int i = 0; i < board.length; i++) {
-			if (hasDuplicates(board, i, 0, i, board.length - 1)) {
+			if (hasDuplicates(board, i, i, 0, board.length - 1)) {
 				return false;
 			}
 		}
 		
 		// check columns
 		for (int j = 0; j < board.length; j++) {
-			if (hasDuplicates(board, 0, j, board.length - 1, j)) {
+			if (hasDuplicates(board, 0, board.length - 1, j, j)) {
 				return false;
 			}
 		}
@@ -27,7 +27,7 @@ public class SudokuChecker {
 		int root = (int) Math.sqrt(board.length);
 		for (int i = 0; i < root; i++) {
 			for (int j = 0; j < root; j++) {
-				if (hasDuplicates(board, (i*root), (j*root), (i*root) + root - 1, (j*root) + root - 1)) {
+				if (hasDuplicates(board, (i*root), (i*root) + root - 1, (j*root), (j*root) + root - 1)) {
 					return false;
 				}
 			}
@@ -37,7 +37,7 @@ public class SudokuChecker {
 	}
 	
 	// inclusive
-	static boolean hasDuplicates(int[][] board, int startRow, int startColumn, int endRow, int endColumn) {
+	static boolean hasDuplicates(int[][] board, int startRow, int endRow, int startColumn, int endColumn) {
 		Set<Integer> set = new HashSet<>();
 		
 		for (int i = startRow; i <= endRow; i++) {
