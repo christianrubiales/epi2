@@ -13,10 +13,10 @@ public class PascalsTriangleLastRow {
 	static List<Integer> pascalsTriangleLastRow(int n) {
 		List<Integer> row = new ArrayList<>();
 		
-		int prev = 1;
+		int prev = 1; // nC0
 		for (int k = 1; k <= n + 1; k++) {
 			row.add(prev);
-			prev = prev * (n + 1 - k) / k;
+			prev = prev * (n + 1 - k) / k; // nCk
 		}
 		
 		return row;
