@@ -2,6 +2,7 @@ package epi2._01primitiveTypes;
 
 public class AddWithoutArithmeticOperators {
 	
+	// O(n) - where n is width of operands
 	static long add(long x, long y) {
 		while (y != 0) {
 			long carry = x & y;
