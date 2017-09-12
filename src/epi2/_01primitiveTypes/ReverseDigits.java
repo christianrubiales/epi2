@@ -6,15 +6,15 @@ public class ReverseDigits {
 	// and decrease the remaining digits by dividing by 10
 	// make sure to process the absolute value
 	static long reverse(long n) {
-		long result = 0;
+		long reversed = 0;
 		long remaining = Math.abs(n);
 		
 		while (remaining != 0) {
-			result = result * 10 + remaining % 10;
+			reversed = reversed * 10 + remaining % 10;
 			remaining /= 10;
 		}
 		
-		return n < 0 ? -result : result;
+		return n < 0 ? -reversed : reversed;
 	}
 
 	public static void main(String[] args) {
