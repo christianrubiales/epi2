@@ -1,12 +1,13 @@
 package epi2._01primitiveTypes;
 
 public class AddWithoutArithmeticOperatorsRecursive {
-	
+
+	// O(n)
 	static long add(long x, long y) {
 		if (y == 0) {
 			return x;
 		} else {
-			return add(x ^ y, (x & y) << 1L);
+			return add(x ^ y, (x & y) << 1);
 		}
 	}
 
@@ -20,7 +21,7 @@ public class AddWithoutArithmeticOperatorsRecursive {
 		System.out.println(add(-1, -2));//-3
 		System.out.println(add(2, 1));//3
 		System.out.println(add(2, -1));//1
-		System.out.println(add(Integer.MAX_VALUE, Integer.MAX_VALUE));
+		System.out.println(add(Integer.MAX_VALUE, Integer.MAX_VALUE));//4294967294
 	}
 
 }
