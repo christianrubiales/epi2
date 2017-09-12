@@ -3,16 +3,11 @@ package epi2._01primitiveTypes;
 public class AddWithoutArithmeticOperatorsRecursive {
 	
 	static long add(long x, long y) {
-		long sum = 0;
-		long carry = 0;
-		
 		if (y == 0) {
 			return x;
+		} else {
+			return add(x ^ y, (x & y) << 1L);
 		}
-		sum = x ^ y;
-		carry = (x & y) << 1L;
-		
-		return add(sum, carry);
 	}
 
 	public static void main(String[] args) {
