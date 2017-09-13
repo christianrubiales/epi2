@@ -7,7 +7,7 @@ package epi2._00bonus;
  * Swap a[i] and a[i+1] if i is odd and a[i] < a[i+1]
  * O(n)
  */
-public class SortAlternatingByOddEvenSwapping {
+public class SortAlternatingByEvenOddSwapping {
 	
 	static int[] alternating(int[] a) {
 		for (int i = 0; i < a.length - 1; i++) {
@@ -43,6 +43,10 @@ public class SortAlternatingByOddEvenSwapping {
 		print("alternating", alternating(array));
 		
 		array = new int[] {3,5,4,8,6,2,7,9,1,10};
+		print("array", array);
+		print("alternating", alternating(array));
+		
+		array = new int[] {1,2,3,5};
 		print("array", array);
 		print("alternating", alternating(array));
 	}
