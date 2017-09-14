@@ -6,11 +6,11 @@ public class BuyAndSellStockOnce {
 	// take note of the difference of between the current price and the current minimum price
 	static int maxProfit(int[] prices) {
 		int maxProfit = 0;
-		int minPrice = Integer.MAX_VALUE;
+		int minPrice = prices[0];
 		
-		for (int price : prices) {
-			maxProfit = Math.max(maxProfit, price - minPrice);
-			minPrice = Math.min(minPrice, price);
+		for (int i = 1; i < prices.length; i++) {
+			maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+			minPrice = Math.min(minPrice, prices[i]);
 		}
 		
 		return maxProfit;
