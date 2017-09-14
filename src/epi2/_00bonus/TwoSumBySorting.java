@@ -16,7 +16,7 @@ public class TwoSumBySorting {
 		int j = a.length - 1;
 		int sum = 0;
 		
-		while (i <= j) {
+		while (i < j) {
 			sum = a[i] + a[j];
 			if (sum == k) {
 				System.out.println(a[i] + " + " + a[j] + " = " + k);
