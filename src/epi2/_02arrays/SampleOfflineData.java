@@ -3,20 +3,23 @@ package epi2._02arrays;
 import java.util.Arrays;
 import java.util.Random;
 
-// the first k elements must be the random sample
 public class SampleOfflineData {
 	
 	// Fisher-Yates left to right instead of right to left
 	static Integer[] randomSample(Integer[] data, int k) {
+		Integer[] a = Arrays.copyOf(data, data.length);
+		Integer[] sample = new Integer[k];
 		Random random = new Random();
+
 		for (int i = 0; i < k; i++) {
-			int r = i + random.nextInt(data.length - i);
-			int t = data[i];
-			data[i] = data[r];
-			data[r] = t;
+			int r = i + random.nextInt(a.length - i);
+			int t = a[i];
+			a[i] = a[r];
+			a[r] = t;
+			sample[i] = a[i];
 		}
 		
-		return data;
+		return sample;
 	}
 
 	public static void main(String[] args) {
