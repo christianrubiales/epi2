@@ -19,7 +19,7 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 			throw new ArithmeticException("Division by zero");
 		}
 
-		// 2) handle negatives
+		// 2) use only positive values
 		boolean signed = (dividend > 0) ^ (divisor > 0);
 		if (divisor < 0) {
 			divisor = -divisor;
@@ -28,12 +28,19 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 			dividend = -dividend;
 		}
 
-		// 3) shift 31 times
+		// 3) start with highest set bit, to prevent unnecessary processing
+		// skip once because of the sign bit
+		// skip again to not shift everything to 0
+		int start = 32 - 2;
+		while (((dividend >>> start) & 1) == 0) {
+			start--;
+		}
+		
+		// 4) algorithm from wikipedia
 		int quotient = 0;
 		int remainder = 0;
 		int bit = 0;
-		
-		for (int i = 31 - 1; i > -1; i--) { // number of bits in positive word - 1
+		for (int i = start; i > -1; i--) { // number of bits in positive word - 1
 			remainder <<= 1;
 			bit = (dividend >>> i) & 1; // get the bit i of the dividend
 			remainder |= bit; // set the retrieved bit to the least significant bit of remainder
@@ -44,7 +51,7 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 			}
 		}
 
-		// 4) return with correct sign
+		// 5) return with correct sign
 		return signed ? -quotient : quotient;
 	}
 
@@ -52,37 +59,44 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 
 		// 1) short-circuit processing and checking
 		if (divisor > dividend) {
-			return 0;
+			return 0L;
 		}
 		if (divisor == dividend) {
-			return 1;
+			return 1L;
 		}
-		if (divisor == 0) {
+		if (divisor == 0L) {
 			throw new ArithmeticException("Division by zero");
 		}
 
-		// 2) handle negatives
-		boolean signed = (dividend > 0) ^ (divisor > 0);
-		if (divisor < 0) {
+		// 2) use only positive values
+		boolean signed = (dividend > 0L) ^ (divisor > 0L);
+		if (divisor < 0L) {
 			divisor = -divisor;
 		}
-		if (dividend < 0) {
+		if (dividend < 0L) {
 			dividend = -dividend;
 		}
 
-		// 3) shift 62 times
-		long quotient = 0;
-		long remainder = 0;
-		long bit = 0;
+		// 3) start with highest set bit, to prevent unnecessary processing
+		// skip once because of the sign bit
+		// skip again to not shift everything to 0
+		long start = 64L - 2L;
+		while (((dividend >>> start) & 1L) == 0L) {
+			start--;
+		}
 		
-		for (int i = 63 - 1; i > -1; i--) { // number of bits in positive word - 1
-			remainder <<= 1;
-			bit = (dividend >>> i) & 1; // get the bit i of the dividend
+		// 4) algorithm from wikipedia
+		long quotient = 0L;
+		long remainder = 0L;
+		long bit = 0L;
+		for (long i = start; i > -1L; i--) { // number of bits in positive word - 1
+			remainder <<= 1L;
+			bit = (dividend >>> i) & 1L; // get the bit i of the dividend
 			remainder |= bit; // set the retrieved bit to the least significant bit of remainder
 			
 			if (remainder >= divisor) {
 				remainder -= divisor;
-				quotient |= 1 << i; // set the ith bit of the quotient to 1
+				quotient |= 1L << i; // set the ith bit of the quotient to 1
 			}
 		}
 
@@ -101,13 +115,31 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 			divide(Integer.MAX_VALUE, 1);
 		}
 		System.out.println(System.currentTimeMillis() - start + "ms");
+		
 		System.out.println(divide(1, 10));// 0
 		System.out.println(divide(1, 1));// 1
 		System.out.println(divide(1, -1));// -1
 		System.out.println(divide(5, 2));// 2
 		System.out.println(divide(18, 3));// 6
 		System.out.println(divide(Integer.MAX_VALUE, 1));// Integer.MAX_VALUE
-		System.out.println(divide(1, 0));// exception
+		try {
+			System.out.println(divide(1, 0));// exception
+		} catch (ArithmeticException e) {
+			e.printStackTrace();
+		}
+		
+
+		System.out.println(divide(1L, 10L));// 0
+		System.out.println(divide(1L, 1L));// 1
+		System.out.println(divide(1L, -1L));// -1
+		System.out.println(divide(5L, 2L));// 2
+		System.out.println(divide(18L, 3L));// 6
+		System.out.println(divide(Integer.MAX_VALUE, 1));// Integer.MAX_VALUE
+		try {
+			System.out.println(divide(1L, 0L));// exception
+		} catch (ArithmeticException e) {
+			e.printStackTrace();
+		}
 
 	}
 
