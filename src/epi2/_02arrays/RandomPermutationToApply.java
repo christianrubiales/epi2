@@ -3,7 +3,7 @@ package epi2._02arrays;
 import java.util.Arrays;
 import java.util.Random;
 
-public class RandomPermutation {
+public class RandomPermutationToApply {
 	
 	// create the initial permutation from 0 to n-1
 	// then shuffle the permutation
