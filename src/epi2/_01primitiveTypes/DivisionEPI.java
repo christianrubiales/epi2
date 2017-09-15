@@ -82,13 +82,13 @@ public class DivisionEPI {
 		  for (int i = 0; i < Integer.MAX_VALUE/100; i++) {
 			  divide(Integer.MAX_VALUE, 1);
 		  }
-		  System.out.println(System.currentTimeMillis() - start);
+		  System.out.println(System.currentTimeMillis() - start + "ms");
 		  
 		  start = System.currentTimeMillis();
 		  for (int i = 0; i < Integer.MAX_VALUE/100; i++) {
 			  divideBinSearch(Integer.MAX_VALUE, 1);
 		  }
-		  System.out.println(System.currentTimeMillis() - start);
+		  System.out.println(System.currentTimeMillis() - start + "ms");
 		  
 //		  System.out.println(Integer.MAX_VALUE);
 //		  System.out.println(divide(Integer.MAX_VALUE, 1));
