@@ -3,7 +3,7 @@ package epi2._02arrays;
 import java.util.Arrays;
 import java.util.Random;
 
-public class NonuniormRandomNumber {
+public class NonuniformRandomNumber {
 	
 	// use prefix sum of probabilities and Java binarySearch
 	static int nonuniformRandom(int[] values, double[] probabilities) {
