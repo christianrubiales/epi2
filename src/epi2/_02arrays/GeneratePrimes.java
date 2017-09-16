@@ -8,11 +8,11 @@ public class GeneratePrimes {
 	// Sieve of Eratosthenes
 	// try multiples of numbers from 2 to ceil(sqrt(max))
 	// O(n log log n)
-	static List<Integer> primes(int max) {
+	static List<Integer> primes(int n) {
 		List<Integer> primes = new ArrayList<>();
 		
-		if (max > 1) {
-			boolean[] sieve = new boolean[max+1];
+		if (n > 1) {
+			boolean[] sieve = new boolean[n+1];
 			sieve[0] = false;
 			sieve[1] = false;
 			
@@ -21,10 +21,10 @@ public class GeneratePrimes {
 				sieve[i] = true;
 			}
 			
-			// try multiples of 2 to ceil(sqrt(max))
-			int root = (int) Math.ceil(Math.sqrt(max));
+			// try multiples of 2 to ceil(sqrt(n))
+			int root = (int) Math.ceil(Math.sqrt(n));
 			for (int i = 2; i <= root; i++) {
-				for (int j = i + i; j <= max; j += i) {
+				for (int j = i + i; j <= n; j += i) {
 					sieve[j] = false;
 				}
 			}
