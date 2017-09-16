@@ -19,7 +19,7 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 			throw new ArithmeticException("Division by zero");
 		}
 
-		// 2) use only positive values
+		// 2) use only non-negative values
 		boolean signed = (dividend > 0) ^ (divisor > 0);
 		if (divisor < 0) {
 			divisor = -divisor;
@@ -32,7 +32,7 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 		// skip once because of the sign bit
 		// skip again to not shift everything to 0
 		int start = 32 - 2;
-		while (((dividend >>> start) & 1) == 0) {
+		while ((dividend >>> start) == 0) {
 			start--;
 		}
 		
@@ -81,7 +81,7 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 		// skip once because of the sign bit
 		// skip again to not shift everything to 0
 		long start = 64L - 2L;
-		while (((dividend >>> start) & 1L) == 0L) {
+		while ((dividend >>> start) == 0L) {
 			start--;
 		}
 		
