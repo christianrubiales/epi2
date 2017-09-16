@@ -10,19 +10,19 @@ public class DutchNationalFlagProblem {
 		Color mid = Color.values()[1];
 		
 		int smaller = 0;
-		int equal = 0;
-		int greater = A.length - 1;
+		int same = 0;
+		int larger = A.length - 1;
 		
-		while (equal <= greater) {
-			if (A[equal].ordinal() < mid.ordinal()) {
-				swap(A, smaller, equal);
+		while (same <= larger) {
+			if (A[same].ordinal() < mid.ordinal()) {
+				swap(A, smaller, same);
 				smaller++;
-				equal++;
-			} else if (A[equal].ordinal() > mid.ordinal()) {
-				swap(A, equal, greater);
-				greater--;
+				same++;
+			} else if (A[same].ordinal() > mid.ordinal()) {
+				swap(A, same, larger);
+				larger--;
 			} else {
-				equal++;
+				same++;
 			}
 		}
 	}
@@ -35,11 +35,12 @@ public class DutchNationalFlagProblem {
 	
 	static void test(Color[] A) {
 		partition(A);
-		System.out.print(Arrays.deepToString(A));
+		System.out.println(Arrays.deepToString(A));
 	}
 
 	public static void main(String[] args) {
 		test(new Color[] {Color.BLUE, Color.BLUE, Color.WHITE, Color.RED, Color.WHITE});
+		test(new Color[] {Color.WHITE, Color.BLUE, Color.BLUE, Color.RED, Color.RED});
 	}
 
 }
