@@ -29,6 +29,16 @@ public class ApplyPermutation {
 	    
 		return A;
 	}
+	
+	public static Object[] applyPermutationInverse(Object[] A, Integer[] perm) {
+		for (int i = 0; i < perm.length / 2; i++) {
+			int t = perm[i];
+			perm[i] = perm[perm.length - 1 - i];
+			perm[perm.length - 1 - i] = t;
+		}
+		
+		return applyPermutation(A, perm);
+	}
 
 	public static Object[] applyPermutationEPI(Object[] A, int[] perm) {
 		for (int i = 0; i < A.length; ++i) {
@@ -80,6 +90,7 @@ public class ApplyPermutation {
 		
 		System.out.println(Arrays.deepToString(applyPermutation(new Object[] { "a", "b", "c", "d", }, new Integer[] { 2, 0, 1, 3 })));// b,c,a,d
 		System.out.println(Arrays.deepToString(applyPermutation(new Object[] { "a", "b", "c", "d", }, new Integer[] { 2, 0, 3, 1 })));// b,d,a,c
+		System.out.println(Arrays.deepToString(applyPermutationInverse(new Object[] { "a", "b", "c", "d", }, new Integer[] { 2, 0, 3, 1 })));// c,a,d,b
 		System.out
 				.println(Arrays.deepToString(applyPermutation(new Object[] { "a", "b", "c" }, new Integer[] { 0, 1, 2 })));// a,b,c
 		System.out
