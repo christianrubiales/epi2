@@ -38,6 +38,37 @@ public class NextPermutation {
 		return A;
 	}
 	
+	static Integer[] previousPermutation(Integer[] A) {
+		// 1) handle arrays with less than two entries
+		if (A == null || A.length < 2) {
+			return null;
+		}
+		
+		// 2) find first i from right where A[i] <= A[i+1]
+		int i = A.length - 2;
+		while (i > -1 && A[i] <= A[i+1]) {
+			i--;
+		}
+		
+		// 3) first permutation already reached
+		if (i == -1) {
+			return null;
+		}
+		
+		// 4) find rightmost entry less than A[i-1], then swap
+		for (int j = A.length - 1; j > i; j--) {
+			if (A[j] < A[i]) {
+				swap(A, i, j);
+				break;
+			}
+		}
+		
+		// 5) reverse the descending sequence
+		reverse(A, i+1, A.length - 1);
+		
+		return A;
+	}
+	
 	static void swap(Integer[] A, int i, int j) {
 		Integer t = A[i];
 		A[i] = A[j];
@@ -55,6 +86,9 @@ public class NextPermutation {
 	public static void main(String[] args) {
 		System.out.println(Arrays.deepToString(nextPermutation(new Integer[] {1,0,3,2}))); // 1,2,0,3
 		System.out.println(Arrays.deepToString(nextPermutation(new Integer[] {3,2,1,0}))); // null
+		
+		System.out.println(Arrays.deepToString(previousPermutation(new Integer[] {1,2,0,3}))); // 1,0,3,2
+		System.out.println(Arrays.deepToString(previousPermutation(new Integer[] {0,1,2,3}))); // null
 
 	}
 
