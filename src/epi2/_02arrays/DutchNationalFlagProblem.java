@@ -2,27 +2,29 @@ package epi2._02arrays;
 
 import java.util.Arrays;
 
+// given an array of colors, partition array around a pivot
 public class DutchNationalFlagProblem {
 	
 	static enum Color {RED, WHITE, BLUE};
 	
-	static void partition(Color[] A) {
-		Color mid = Color.values()[1];
+	// reorder elements around a pivot
+	static void partition(Color[] A, Color pivot) {
 		
-		int smaller = 0;
-		int same = 0;
-		int larger = A.length - 1;
+		// use 3 pointers
+		int l = 0; // lower than pivot
+		int u = 0; // unclassified
+		int h = A.length - 1; // higher than pivot
 		
-		while (same <= larger) {
-			if (A[same].ordinal() < mid.ordinal()) {
-				swap(A, smaller, same);
-				smaller++;
-				same++;
-			} else if (A[same].ordinal() > mid.ordinal()) {
-				swap(A, same, larger);
-				larger--;
+		while (u <= h) {
+			if (A[u].ordinal() < pivot.ordinal()) {
+				swap(A, l, u); // swap A[u] and A[l]
+				l++;
+				u++;
+			} else if (A[u].ordinal() > pivot.ordinal()) {
+				swap(A, u, h); // swap A[u] and A[h]
+				h--;
 			} else {
-				same++;
+				u++;
 			}
 		}
 	}
@@ -34,13 +36,14 @@ public class DutchNationalFlagProblem {
 	}
 	
 	static void test(Color[] A) {
-		partition(A);
+		partition(A, Color.WHITE);
 		System.out.println(Arrays.deepToString(A));
 	}
 
 	public static void main(String[] args) {
 		test(new Color[] {Color.BLUE, Color.BLUE, Color.WHITE, Color.RED, Color.WHITE});
 		test(new Color[] {Color.WHITE, Color.BLUE, Color.BLUE, Color.RED, Color.RED});
+		test(new Color[] {Color.BLUE, Color.BLUE, Color.RED, Color.RED, Color.RED});
 	}
 
 }
