@@ -3,14 +3,14 @@ package epi2._02arrays;
 public class AdvancingThroughArray {
 	
 	static boolean canReachEnd(Integer[] maxAdvanceSteps) {
-		int furthestReachSoFar = 0;
+		int maxSoFar = 0;
 		int lastIndex = maxAdvanceSteps.length - 1;
 		
-		for (int i = 0; i <= furthestReachSoFar && furthestReachSoFar < lastIndex; i++) {
-			furthestReachSoFar = Math.max(furthestReachSoFar, i + maxAdvanceSteps[i]);
+		for (int i = 0; i <= maxSoFar && maxSoFar < lastIndex; i++) {
+			maxSoFar = Math.max(maxSoFar, i + maxAdvanceSteps[i]);
 		}
 		
-		return furthestReachSoFar >= lastIndex;
+		return maxSoFar >= lastIndex;
 	}
 
 	public static void main(String[] args) {
