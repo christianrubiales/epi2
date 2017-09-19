@@ -8,7 +8,7 @@ public class MultiplyArbitraryPrecisionIntegers {
 	static Integer[] multiply(Integer[] x, Integer[] y) {
 
 		// handle sign
-		int sign = (x[0] < 0) ^ y[0] < 0 ? -1 : 1;
+		int sign = (x[0] < 0) ^ (y[0] < 0) ? -1 : 1;
 		x[0] = Math.abs(x[0]);
 		y[0] = Math.abs(y[0]);
 		
