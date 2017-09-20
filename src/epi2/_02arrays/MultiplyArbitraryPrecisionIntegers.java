@@ -12,12 +12,13 @@ public class MultiplyArbitraryPrecisionIntegers {
 		x[0] = Math.abs(x[0]);
 		y[0] = Math.abs(y[0]);
 		
-		// long multiplication
+		// long multiplication from right to left
 		Integer[] result = new Integer[x.length + y.length];
 		Arrays.fill(result, 0);
-		for (int i = x.length - 1; i >= 0; i--) {
-			for (int j = y.length - 1; j >= 0; j--) {
+		for (int i = x.length - 1; i > -1; i--) {
+			for (int j = y.length - 1; j > -1; j--) {
 				result[i+j+1] = result[i+j+1] + x[i] * y[j];
+				// split if has carry
 				result[i+j]   = result[i+j]   + result[i+j+1] / 10;
 				result[i+j+1] = result[i+j+1] % 10;
 			}
@@ -40,6 +41,8 @@ public class MultiplyArbitraryPrecisionIntegers {
 	}
 
 	public static void main(String[] args) {
+		System.out.println(Arrays.deepToString(multiply(new Integer[] {1,2,5}, new Integer[] {2}))); // 2,5,0
+		System.out.println(Arrays.deepToString(multiply(new Integer[] {1,2,3}, new Integer[] {9,8,7}))); // 1,2,1,4,0,1
 		System.out.println(Arrays.deepToString(multiply(new Integer[] {1,2,3}, new Integer[] {1,0}))); // 1,2,3,0
 		System.out.println(Arrays.deepToString(multiply(new Integer[] {0}, new Integer[] {1}))); // 0
 		System.out.println(Arrays.deepToString(multiply(new Integer[] {1}, new Integer[] {1}))); // 1
