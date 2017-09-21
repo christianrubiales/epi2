@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class HeapsPermutationRecursive {
 	
-	static Set<char[]> set = new HashSet<>();
+	static Set<String> set = new HashSet<>();
 	
 	static void generate(char[] A) {
 		set.clear();
@@ -16,7 +16,7 @@ public class HeapsPermutationRecursive {
 		}
 		
 		System.out.println(A);
-		set.add(A);
+		set.add(new String(A));
 		
 		int i = 0;
 		while (i < A.length) {
@@ -27,7 +27,7 @@ public class HeapsPermutationRecursive {
 					swap(A, i, 0);
 				}
 				System.out.println(A);
-				set.add(A);
+				set.add(new String(A));
 				c[i]++;
 				i = 0;
 			} else {
@@ -46,7 +46,9 @@ public class HeapsPermutationRecursive {
 
 	public static void main(String[] args) {
 		generate("ABC".toCharArray());
+		generate("123".toCharArray());
 		generate("1234".toCharArray());
 		generate("ABCD".toCharArray());
+		generate("112".toCharArray());
 	}
 }
