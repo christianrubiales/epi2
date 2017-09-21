@@ -13,13 +13,14 @@ public class ApplyPermutation {
 	        while (perm[i] != i)
 	        {
 	            // Copy old values before overwriting
-	            Object oldTargetObject  = A[perm[i]];
-	            int oldTargetIndex  = perm[perm[i]];
+	        		int targetIndex = perm[i];
+	            int oldTargetIndex  = perm[targetIndex];
+	            Object oldTargetObject  = A[targetIndex];
 	 
 	            // Place A[i] at its target position
-	            // Copy corrected index for new position
-	            A[perm[i]] = A[i];
-	            perm[perm[i]] = perm[i];
+	            // Update target index in perm array
+	            A[targetIndex] = A[i];
+	            perm[targetIndex] = targetIndex;
 	 
 	            // Copy old targets
 	            A[i] = oldTargetObject;
@@ -104,35 +105,35 @@ public class ApplyPermutation {
 		System.out
 				.println(Arrays.deepToString(applyPermutation(new Object[] { "a", "b", "c" }, new Integer[] { 1, 0, 2 })));// b,a,c
 
-		System.out.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c", "d", }, new int[] { 2, 0, 1, 3 })));// b,c,a,d
-		System.out.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c", "d", }, new int[] { 2, 0, 3, 1 })));// b,d,a,c
-		System.out
-				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 0, 1, 2 })));// a,b,c
-		System.out
-				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 0, 2, 1 })));// a,c,b
-		System.out
-				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 2, 0, 1 })));// b,c,a
-		System.out
-				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 2, 1, 0 })));// c,b,a
-		System.out
-				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 1, 2, 0 })));// c,a,b
-		System.out
-				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 1, 0, 2 })));// b,a,c
-
-		System.out.println(Arrays.deepToString(applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c", "d", }, new int[] { 2, 0, 1, 3 })));// b,c,a,d
-		System.out.println(Arrays.deepToString(applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c", "d", }, new int[] { 2, 0, 3, 1 })));// b,d,a,c
-		System.out.println(Arrays.deepToString(
-				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 0, 1, 2 })));// a,b,c
-		System.out.println(Arrays.deepToString(
-				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 0, 2, 1 })));// a,c,b
-		System.out.println(Arrays.deepToString(
-				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 2, 0, 1 })));// b,c,a
-		System.out.println(Arrays.deepToString(
-				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 2, 1, 0 })));// c,b,a
-		System.out.println(Arrays.deepToString(
-				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 1, 2, 0 })));// c,a,b
-		System.out.println(Arrays.deepToString(
-				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 1, 0, 2 })));// b,a,c
+//		System.out.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c", "d", }, new int[] { 2, 0, 1, 3 })));// b,c,a,d
+//		System.out.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c", "d", }, new int[] { 2, 0, 3, 1 })));// b,d,a,c
+//		System.out
+//				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 0, 1, 2 })));// a,b,c
+//		System.out
+//				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 0, 2, 1 })));// a,c,b
+//		System.out
+//				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 2, 0, 1 })));// b,c,a
+//		System.out
+//				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 2, 1, 0 })));// c,b,a
+//		System.out
+//				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 1, 2, 0 })));// c,a,b
+//		System.out
+//				.println(Arrays.deepToString(applyPermutationEPI(new Object[] { "a", "b", "c" }, new int[] { 1, 0, 2 })));// b,a,c
+//
+//		System.out.println(Arrays.deepToString(applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c", "d", }, new int[] { 2, 0, 1, 3 })));// b,c,a,d
+//		System.out.println(Arrays.deepToString(applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c", "d", }, new int[] { 2, 0, 3, 1 })));// b,d,a,c
+//		System.out.println(Arrays.deepToString(
+//				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 0, 1, 2 })));// a,b,c
+//		System.out.println(Arrays.deepToString(
+//				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 0, 2, 1 })));// a,c,b
+//		System.out.println(Arrays.deepToString(
+//				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 2, 0, 1 })));// b,c,a
+//		System.out.println(Arrays.deepToString(
+//				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 2, 1, 0 })));// c,b,a
+//		System.out.println(Arrays.deepToString(
+//				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 1, 2, 0 })));// c,a,b
+//		System.out.println(Arrays.deepToString(
+//				applyPermutationWithAdditionalSpace(new Object[] { "a", "b", "c" }, new int[] { 1, 0, 2 })));// b,a,c
 	}
 
 }
