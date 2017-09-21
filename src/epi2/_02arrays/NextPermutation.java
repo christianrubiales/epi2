@@ -44,7 +44,7 @@ public class NextPermutation {
 			return null;
 		}
 		
-		// 2) find first i from right where A[i] <= A[i+1]
+		// 2) find rightmost i where A[i] > A[i+1]
 		int i = A.length - 2;
 		while (i > -1 && A[i] <= A[i+1]) {
 			i--;
@@ -55,7 +55,7 @@ public class NextPermutation {
 			return null;
 		}
 		
-		// 4) find rightmost entry less than A[i-1], then swap
+		// 4) find rightmost entry less than A[i], then swap
 		for (int j = A.length - 1; j > i; j--) {
 			if (A[j] < A[i]) {
 				swap(A, i, j);
@@ -63,7 +63,7 @@ public class NextPermutation {
 			}
 		}
 		
-		// 5) reverse the descending sequence, from A[i+1] to end
+		// 5) reverse from A[i+1] to end
 		reverse(A, i+1, A.length - 1);
 		
 		return A;
