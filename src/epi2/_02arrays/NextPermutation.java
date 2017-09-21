@@ -8,18 +8,18 @@ import java.util.Arrays;
 public class NextPermutation {
 	
 	static Integer[] nextPermutation(Integer[] A) {
-		// 1) handle arrays with less than two entries
+		// 1) handle arrays with less than two items
 		if (A == null || A.length < 2) {
 			return null;
 		}
 		
-		// 2) find first i where A[i] < A[i+1] (non-descending)
+		// 2) find rightmost i where A[i] < A[i+1]
 		int i = A.length - 2;
 		while (i > -1 && A[i] >= A[i+1]) {
 			i--;
 		}
 		
-		// 3) last permutation already reached
+		// 3) return null if last permutation already reached
 		if (i == -1) {
 			return null;
 		}
@@ -39,7 +39,7 @@ public class NextPermutation {
 	}
 	
 	static Integer[] previousPermutation(Integer[] A) {
-		// 1) handle arrays with less than two entries
+		// 1) handle arrays with less than two items
 		if (A == null || A.length < 2) {
 			return null;
 		}
@@ -84,6 +84,13 @@ public class NextPermutation {
 	}
 
 	public static void main(String[] args) {
+		Integer[] A = new Integer[] {1,2,3};
+		while (A != null) {
+			System.out.println(Arrays.deepToString(A));
+			A = nextPermutation(A);
+		}
+
+		System.out.println(Arrays.deepToString(nextPermutation(new Integer[] {1,2,1}))); // 2,1,1
 		System.out.println(Arrays.deepToString(nextPermutation(new Integer[] {1,0,3,2}))); // 1,2,0,3
 		System.out.println(Arrays.deepToString(nextPermutation(new Integer[] {3,2,1,0}))); // null
 		
