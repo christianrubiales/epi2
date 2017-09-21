@@ -29,10 +29,10 @@ public class MultiplyArbitraryPrecisionIntegers {
 		while (i < result.length && result[i] == 0) {
 			i++;
 		}
-		result = Arrays.copyOfRange(result, i, result.length);
-		if (result.length == 0) {
+		if (i == result.length) {
 			return new Integer[] {0};
 		}
+		result = Arrays.copyOfRange(result, i, result.length);
 		
 		// return with correct sign
 		result[0] = result[0] * sign;
