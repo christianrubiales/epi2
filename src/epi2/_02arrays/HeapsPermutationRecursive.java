@@ -1,32 +1,24 @@
 package epi2._02arrays;
 
 public class HeapsPermutationRecursive {
-	
+
 	static void generate(char[] A) {
-		char[] c = new char[A.length];
-		
-		for (int i = 0; i < c.length; i++) {
-			c[i] = 0;
-		}
-		
-		System.out.println(A);
-		
-		int i = 0;
-		while (i < A.length) {
-			if (c[i] < i) {
-				if (i % 2 == 0) {
-					swap(A, 0, i);
+		generate(A.length - 1, A);
+	}
+	
+	static void generate(int n, char[] A) {
+		if (n == 0) {
+			System.out.println(A);
+		} else {
+			for (int i = 0; i <= n; i++) {
+				generate(n - 1, A);
+				int j = 0;
+				if (n % 2 == 0) {
+					j = 1;
 				} else {
-					swap(A, i, 0);
+					j = i;
 				}
-				
-				System.out.println(A);
-				
-				c[i]++;
-				i = 0;
-			} else {
-				c[i] = 0;
-				i++;
+				swap(A, n, j);
 			}
 		}
 	}
@@ -38,10 +30,7 @@ public class HeapsPermutationRecursive {
 	}
 
 	public static void main(String[] args) {
-//		generate("ABC".toCharArray());
-//		generate("123".toCharArray());
-//		generate("1234".toCharArray());
-		generate("ABCD".toCharArray());
-//		generate("112".toCharArray());
+		generate("ABC".toCharArray());
+		generate("1234".toCharArray());
 	}
 }
