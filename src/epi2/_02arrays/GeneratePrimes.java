@@ -13,8 +13,6 @@ public class GeneratePrimes {
 		
 		if (n > 1) {
 			boolean[] sieve = new boolean[n+1];
-			sieve[0] = false;
-			sieve[1] = false;
 			
 			// initialize all to true
 			for (int i = 2; i < sieve.length; i++) {
