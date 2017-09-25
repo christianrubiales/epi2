@@ -39,7 +39,7 @@ public class NextPermutation {
 	}
 	
 	static Integer[] previousPermutation(Integer[] A) {
-		// 1) handle arrays with less than two items
+		// 1) handle arrays with less than two entries
 		if (A == null || A.length < 2) {
 			return null;
 		}
@@ -50,7 +50,7 @@ public class NextPermutation {
 			i--;
 		}
 		
-		// 3) if last permutation already reached, return null
+		// 3) if already the first permutation, return null
 		if (i == -1) {
 			return null;
 		}
