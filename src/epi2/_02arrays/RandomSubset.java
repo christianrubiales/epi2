@@ -20,7 +20,7 @@ public class RandomSubset {
 		Map<Integer, Integer> map = new HashMap<>();
 		Random random = new Random();
 		
-		for (int i = 0; i < k; ++i) {
+		for (int i = 0; i < k; i++) {
 			int r = i + random.nextInt(n - i);
 
 			Integer vr = map.get(r);
