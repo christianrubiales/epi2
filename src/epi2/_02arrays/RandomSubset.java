@@ -14,7 +14,7 @@ import java.util.TreeSet;
 public class RandomSubset {
 	
 	// return a random array of indices to apply to the original array to get the subset
-	// mimicking swapping values in Fisher-Yates but does not need full O(n) space
+	// mimick Fisher-Yates without full O(n) space
 	// O(k) time, O(k) space
 	static Set<Integer> randomSubset(int n, int k) {
 		Map<Integer, Integer> map = new HashMap<>();
