@@ -1,14 +1,8 @@
 package epi2._02arrays;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class HeapsPermutationRecursive {
 	
-	static Set<String> set = new HashSet<>();
-	
 	static void generate(char[] A) {
-		set.clear();
 		char[] c = new char[A.length];
 		
 		for (int i = 0; i < c.length; i++) {
@@ -16,7 +10,6 @@ public class HeapsPermutationRecursive {
 		}
 		
 		System.out.println(A);
-		set.add(new String(A));
 		
 		int i = 0;
 		while (i < A.length) {
@@ -26,8 +19,9 @@ public class HeapsPermutationRecursive {
 				} else {
 					swap(A, i, 0);
 				}
+				
 				System.out.println(A);
-				set.add(new String(A));
+				
 				c[i]++;
 				i = 0;
 			} else {
@@ -35,7 +29,6 @@ public class HeapsPermutationRecursive {
 				i++;
 			}
 		}
-		System.out.println(set.size());
 	}
 	
 	static void swap(char[] array, int i, int j) {
@@ -45,10 +38,10 @@ public class HeapsPermutationRecursive {
 	}
 
 	public static void main(String[] args) {
-		generate("ABC".toCharArray());
-		generate("123".toCharArray());
-		generate("1234".toCharArray());
+//		generate("ABC".toCharArray());
+//		generate("123".toCharArray());
+//		generate("1234".toCharArray());
 		generate("ABCD".toCharArray());
-		generate("112".toCharArray());
+//		generate("112".toCharArray());
 	}
 }
