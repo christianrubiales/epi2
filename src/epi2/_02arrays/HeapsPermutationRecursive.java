@@ -35,7 +35,7 @@ public class HeapsPermutationRecursive {
 	public static void main(String[] args) {
 //		generate("ABC".toCharArray());
 //		generate("1234".toCharArray());
-		generate("ABCDEF".toCharArray());
+		generate("ABCD".toCharArray());
 //		generate("312".toCharArray());
 		System.out.println(set.size());
 	}
