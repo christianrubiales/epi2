@@ -13,7 +13,6 @@ public class HeapsPermutationRecursive {
 	static void generate(int n, char[] A) {
 		if (n == 0) {
 			System.out.println(A);
-//			set.add(new String(A));
 		} else {
 			for (int i = 0; i < n; i++) {
 				generate(n - 1, A);
@@ -35,7 +34,7 @@ public class HeapsPermutationRecursive {
 	public static void main(String[] args) {
 //		generate("ABC".toCharArray());
 //		generate("1234".toCharArray());
-		generate("ABCD".toCharArray());
+		generate("ABCDE".toCharArray());
 //		generate("312".toCharArray());
 		System.out.println(set.size());
 	}
