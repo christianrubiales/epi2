@@ -12,7 +12,7 @@ public class AddBinaryIntegersAsList {
 		int diff = c.size() - d.size();
 		int carry = 0;
 		
-		// add up to the digit of the smaller number
+		// add the overlapping digits
 		for (int i = d.size() - 1; i > -1; i--) {
 			int sum = c.get(diff + i) + d.get(i) + carry;
 			c.set(diff + i, sum % 2);
@@ -39,7 +39,7 @@ public class AddBinaryIntegersAsList {
 		List<Integer> d = new ArrayList<>(a.size() < b.size() ? a : b);
 		int carry = 0;
 		
-		// add up to the digit of the smaller number
+		// add the overlapping digits
 		for (int i = 0; i < d.size(); i++) {
 			int sum = c.get(c.size() - 1 - i) + d.get(d.size() - 1 - i) + carry;
 			
