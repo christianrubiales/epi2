@@ -10,6 +10,7 @@ public class NegativePositivePartitioning {
 	
 	// Most pivoting do not work
 	// @see http://algs4.cs.princeton.edu/lectures/23DemoPartitioning.pdf
+	// Partitioning a doubly-linked list however, should be O(n) time, O(1) space
 	
 	/**
 	 * @see https://stackoverflow.com/a/18535329/5459839
