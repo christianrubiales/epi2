@@ -35,6 +35,34 @@ public class AddArbitraryPrecisionIntegers {
 		return c;
 	}
 
+//	static List<Byte> add(List<Byte> a, List<Byte> b) {
+//		List<Byte> c = new ArrayList<>(a.size() >= b.size() ? a : b);
+//		List<Byte> d = new ArrayList<>(a.size() < b.size() ? a : b);
+//		int diff = c.size() - d.size();
+//		byte carry = 0;
+//		
+//		// add the overlapping digits
+//		for (int i = d.size() - 1; i > -1; i--) {
+//			byte sum = (byte) (c.get(diff + i) + d.get(i) + carry);
+//			c.set(diff + i, (byte) (sum % 10));
+//			carry = (byte) (sum / 10);
+//		}
+//
+//		// add the carry to the remaining digits of the larger number
+//		for (int i = diff - 1; i > -1; i--) {
+//			byte sum = (byte) (c.get(i) + carry);
+//			c.set(i, (byte) (sum % 10));
+//			carry = (byte) (sum / 10);
+//		}
+//		
+//		// if there is a last carry, the list has to grow
+//		if (carry != 0) {
+//			c.add(0, carry);
+//		}
+//		
+//		return c;
+//	}
+
 	public static void main(String[] args) {
 		System.out.println(add(new ArrayList<>(Arrays.asList(1)), new ArrayList<>(Arrays.asList(0))));//1
 		System.out.println(add(new ArrayList<>(Arrays.asList(1)), new ArrayList<>(Arrays.asList(1))));//2
