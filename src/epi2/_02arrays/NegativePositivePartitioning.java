@@ -8,11 +8,12 @@ import java.util.Arrays;
  */
 public class NegativePositivePartitioning {
 	
-	// Most pivoting do not work
+	// Most pivoting do not work.
 	// @see http://algs4.cs.princeton.edu/lectures/23DemoPartitioning.pdf
 	// Partitioning a doubly-linked list however, should be O(n) time, O(1) space
 	
 	/**
+	 * O(n) time, O(1) space
 	 * @see https://stackoverflow.com/a/18535329/5459839
 	 */
 	static Integer[] partition(Integer[] A) {
@@ -53,6 +54,30 @@ public class NegativePositivePartitioning {
 			A[i] = A[i] / newMax + min;
 		}
 
+		return A;
+	}
+	
+	// By swapping. Can it be improved by using adaptive direction swapping?
+	// O((n^2)/4)
+	static Integer[] partition0(Integer[] A) {
+		
+		int swaps = 0;
+		int positive = A.length - 1;
+		while (positive > -1) {
+			int oldIndex = positive;
+			while (positive < A.length - 1 && A[positive+1] < 0) {
+				swap(A, positive, positive+1);
+				positive++;
+				swaps++;
+			}
+			positive = oldIndex - 1;
+			while (positive > -1 && A[positive] < 0) {
+				positive--;
+			}
+		}
+		
+		System.out.println("swaps: " + swaps + ", n: " + A.length + ", n^2/4: " + A.length*A.length/4 
+				+  ", multiple: " + (swaps/A.length) + ", nlogn: " + (A.length * Math.log(A.length)/Math.log(2)));
 		return A;
 	}
 	
@@ -124,6 +149,52 @@ public class NegativePositivePartitioning {
 //		System.out.println(Arrays.deepToString(partition(new Integer[] {-1,-2,-3,-1,-2,-3})));
 //		System.out.println(Arrays.deepToString(partition(new Integer[] {1,2,3,1,2,3})));
 //		System.out.println(Arrays.deepToString(partition(new Integer[] {4,-8,6,-3,5,-9,3})));
+		
+//		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,3,-1,-2,-3})));
+//		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,-1,2,-2,3,-3})));
+//		System.out.println(Arrays.deepToString(partition0(new Integer[] {-1,-2,-3,-1,-2,-3})));
+//		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,3,1,2,3})));
+//		System.out.println(Arrays.deepToString(partition0(new Integer[] {4,-8,6,-3,5,-9,3})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,-1})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,-1,-2})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,3,-1,-2,-3})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,3,4,-1,-2,-3,-4})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,3,4,5,-1,-2,-3,-4,-5})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,3,4,5,6,7,8,-1,-2,-3,-4,-5,-6,-7,-8})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,3,4,5,6,7,8,9,10,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16})));
+		System.out.println(Arrays.deepToString(partition0(new Integer[] {
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16
+				-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16})));
 		
 //		System.out.println(Arrays.deepToString(partition2(new Integer[] {1,2,3,-1,-2,-3})));
 //		System.out.println(Arrays.deepToString(partition2(new Integer[] {1,-1,2,-2,3,-3})));
