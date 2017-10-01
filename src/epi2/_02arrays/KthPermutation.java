@@ -10,7 +10,43 @@ import java.util.List;
  */
 public class KthPermutation {
 	
+	// @see https://github.com/lucaslouca/kth-permutation/blob/master/PermutationSequence.java
 	static Object[] kthPermutation(Object[] A, int k) {
+		
+		// copy array to list
+		List<Object> copy = new LinkedList<>();
+		for (Object o : A) {
+			copy.add(o);
+		}
+
+		int n = A.length;
+		Object[] perm = new Object[n];
+		int fact = factorial(n - 1);
+		int i;
+		while (n > 0) {
+			i = k / fact;
+			perm[A.length - n] = copy.get(i);
+			copy.remove(i);
+			k = k % fact; // Rest
+			fact /= Math.max(1, (n - 1)); // (n-1)!, (n-2)!, (n-3)!, ... 
+			n--;
+		}
+
+		return perm;
+	}
+	
+	static int factorial(int n) {
+		int result = 1;
+		
+		for (int i = 2; i <= n; i++) {
+			result *= i;
+		}
+		
+		return result;
+	}
+	
+	// not much difference with LinkedList
+	static Object[] kthPermutation1(Object[] A, int k) {
 		List<Integer> fact = factoradic(k);
 		
 		// copy array to list
@@ -18,7 +54,7 @@ public class KthPermutation {
 		for (Object o : A) {
 			list.add(o);
 		}
-		
+
 		// get the values pointed to by the factoradic indexes
 		Object[] perm = new Object[A.length];
 		for (int i = 0; i < fact.size(); i++) {
@@ -121,27 +157,19 @@ public class KthPermutation {
 //			System.out.println(factoradic(i));
 //		}
 //		System.out.println(factoradic(349));
-//		System.out.println(Arrays.deepToString(kthPermutation(new Object[] {1,2,3,4}, 0))); // 3,2,1,4
-//		System.out.println(Arrays.deepToString(kthPermutation(new Object[] {1,2,3,4}, 1))); // 2,1,3,4
-//		System.out.println(Arrays.deepToString(kthPermutation3(new Object[] {1,2,3,4}, 0))); // 2,1,3,4
-//		System.out.println(Arrays.deepToString(kthPermutation3(new Object[] {1,2,3,4}, 1))); // 2,1,3,4
-//		System.out.println(Arrays.deepToString(kthPermutation3(new Object[] {1,2,3,4}, 14))); // 3,2,1,4
-//		System.out.println(Arrays.deepToString(kthPermutation3(new Object[] {0,1,2,3,4,5,6,7,8,9}, 1000000-1))); //2,7,8,3,9,1,5,4,6,0
+//		System.out.println(Arrays.deepToString(kthPermutation(new Object[] {1,2,3,4}, 0))); // 1,2,3,4
+//		System.out.println(Arrays.deepToString(kthPermutation(new Object[] {1,2,3,4}, 1))); // 1,2,4,3
+		System.out.println(Arrays.deepToString(kthPermutation(new Object[] {1,2,3,4}, 14))); // 3,2,1,4
+//		System.out.println(Arrays.deepToString(kthPermutation(new Object[] {0,1,2,3,4,5,6,7,8,9}, 1000000-1))); //2,7,8,3,9,1,5,4,6,0
 		
 //		for (int i = 0; i < 24; i++) {
 //			System.out.println(Arrays.deepToString(kthPermutation(new Object[] {1,2,3,4}, i)));
 //		}
-		for (int i = 0; i < 24; i++) {
-			System.out.println(Arrays.deepToString(kthPermutation(new Object[] {'a','b','c','d'}, i)));
-		}
+//		for (int i = 0; i < 24; i++) {
+//			System.out.println(Arrays.deepToString(kthPermutation(new Object[] {'a','b','c','d'}, i)));
+//		}
 		
 		long start = System.currentTimeMillis();
-//		for (int i = 0; i < 1000000; i++) {
-//			Arrays.deepToString(kthPermutation(new Object[] {0,1,2,3,4,5,6,7,8,9}, 1000000-1));
-//		}
-//		System.out.println(System.currentTimeMillis() - start + "ms");
-//		
-//		start = System.currentTimeMillis();
 		for (int i = 0; i < 1000000; i++) {
 			Arrays.deepToString(kthPermutation(new Object[] {0,1,2,3,4,5,6,7,8,9}, 1000000-1));
 		}
