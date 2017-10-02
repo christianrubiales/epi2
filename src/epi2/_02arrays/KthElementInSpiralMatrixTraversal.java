@@ -16,15 +16,15 @@ public class KthElementInSpiralMatrixTraversal {
 	        return M[firstRow][k-1];
 	 
 	    /* Element is in last column */
-	    if (k <= (m+n-1))
+	    if (k <= (m + n-1))
 	        return M[(k-m)][lastCol];
 	 
 	    /* Element is in last row */
-	    if (k <= (m+n-1+m-1))
+	    if (k <= (m + n-1 + m-1))
 	        return M[lastRow][m-1-(k-(m+n-1))];
 	 
 	    /* Element is in first column */
-	    if (k <= (m+n-1+m-1+n-2))
+	    if (k <= (m + n-1 + m-1 + n-2))
 	        return M[n-1-(k-(m+n-1+m-1))][firstCol];
 	    
 	    return kthElement(M, k-(n*2+m*2-4), firstRow+1, lastRow-1, firstCol+1, lastCol-1);
