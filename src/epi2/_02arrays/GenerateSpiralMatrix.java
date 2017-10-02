@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class GenerateSpiralMatrix {
 	
+	// @see http://www.crazyforcode.com/print-square-matrix-spiral-form/
+	// O(n^2)
 	static Integer[][] generateMatrix(int n) {
         int rowStart = 0;
         int rowEnd = n-1;
