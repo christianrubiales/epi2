@@ -19,25 +19,25 @@ public class SpiralOrderOfMatrix {
         int colEnd = M[0].length - 1;
         
         while (rowStart <= rowEnd && colStart <= colEnd) {
-            for (int j = colStart; j <= colEnd; j ++) {// right
+            for (int j = colStart; j <= colEnd; j++) {// right
                 order.add(M[rowStart][j]);
             }
             rowStart++;
             
-            for (int j = rowStart; j <= rowEnd; j ++) {// down
+            for (int j = rowStart; j <= rowEnd; j++) {// down
                 order.add(M[j][colEnd]);
             }
             colEnd--;
             
             if (rowStart <= rowEnd) {// left
-                for (int j = colEnd; j >= colStart; j --) {
+                for (int j = colEnd; j >= colStart; j--) {
                     order.add(M[rowEnd][j]);
                 }
             }
             rowEnd--;
             
-            if (colStart <= colEnd) {// right
-                for (int j = rowEnd; j >= rowStart; j --) {
+            if (colStart <= colEnd) {// up
+                for (int j = rowEnd; j >= rowStart; j--) {
                     order.add(M[j][colStart]);
                 }
             }
