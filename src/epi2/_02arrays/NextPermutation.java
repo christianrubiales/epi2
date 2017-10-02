@@ -84,7 +84,7 @@ public class NextPermutation {
 	}
 
 	public static void main(String[] args) {
-		Integer[] A = new Integer[] {1,2,3};
+		Integer[] A = new Integer[] {1,2,3,4};
 		while (A != null) {
 			System.out.println(Arrays.deepToString(A));
 			A = nextPermutation(A);
