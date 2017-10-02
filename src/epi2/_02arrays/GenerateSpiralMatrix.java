@@ -30,7 +30,7 @@ public class GenerateSpiralMatrix {
             }
             rowEnd--;
             
-            if (colStart <= colEnd) {// right
+            if (colStart <= colEnd) {// up
                 for (int j = rowEnd; j >= rowStart; j --) {
                     M[j][colStart] = i++;
                 }
