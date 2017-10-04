@@ -27,7 +27,7 @@ public class AddArbitraryPrecisionIntegers {
 			carry = sum / 10;
 		}
 		
-		// if there is a last carry, the list has to grow
+		// if there is a last carry, add it as the first value
 		if (carry != 0) {
 			c.add(0, carry);
 		}
@@ -37,11 +37,12 @@ public class AddArbitraryPrecisionIntegers {
 
 	// return a - b
 	static List<Integer> subtract(List<Integer> a, List<Integer> b) {
+		// if a is not smaller than b, negate all values in b
 		if (a.size() < b.size()) {
 			for (int i = 0; i < b.size(); i++) {
 				b.set(i, -b.get(i));
 			}
-		} else {
+		} else { // b is larger, swap a and b, and negate all values in a
 			List<Integer> t = a;
 			a = b;
 			b = t;
