@@ -35,6 +35,32 @@ public class AddArbitraryPrecisionIntegers {
 		return c;
 	}
 
+	// return a - b
+	static List<Integer> subtract(List<Integer> a, List<Integer> b) {
+		if (a.size() < b.size()) {
+			for (int i = 0; i < b.size(); i++) {
+				b.set(i, -b.get(i));
+			}
+		} else {
+			List<Integer> t = a;
+			a = b;
+			b = t;
+			for (int i = 0; i < a.size(); i++) {
+				a.set(i, -a.get(i));
+			}
+		}
+		
+		return processSigns(add(a, b));
+	}
+	
+	static List<Integer> processSigns(List<Integer> a) {
+		for (int i = 1; i < a.size(); i++) {
+			a.set(i, Math.abs(a.get(i)));
+		}
+		
+		return a;
+	}
+
 //	static List<Byte> add(List<Byte> a, List<Byte> b) {
 //		List<Byte> c = new ArrayList<>(a.size() >= b.size() ? a : b);
 //		List<Byte> d = new ArrayList<>(a.size() < b.size() ? a : b);
@@ -69,6 +95,15 @@ public class AddArbitraryPrecisionIntegers {
 		System.out.println(add(new ArrayList<>(Arrays.asList(9)), new ArrayList<>(Arrays.asList(1))));//1,0
 		System.out.println(add(new ArrayList<>(Arrays.asList(5,0)), new ArrayList<>(Arrays.asList(5,0))));//1,0,0
 		System.out.println(add(new ArrayList<>(Arrays.asList(9,9)), new ArrayList<>(Arrays.asList(9,9))));//1,9,8
+
+		System.out.println(subtract(new ArrayList<>(Arrays.asList(1)), new ArrayList<>(Arrays.asList(0))));//1
+		System.out.println(subtract(new ArrayList<>(Arrays.asList(1)), new ArrayList<>(Arrays.asList(1))));//0
+		System.out.println(subtract(new ArrayList<>(Arrays.asList(0)), new ArrayList<>(Arrays.asList(1))));//-1
+		System.out.println(subtract(new ArrayList<>(Arrays.asList(9)), new ArrayList<>(Arrays.asList(1))));//8
+		System.out.println(subtract(new ArrayList<>(Arrays.asList(1,0)), new ArrayList<>(Arrays.asList(2,0))));//-1,0
+		System.out.println(subtract(new ArrayList<>(Arrays.asList(1,0)), new ArrayList<>(Arrays.asList(2,2))));//-1,2
+		System.out.println(subtract(new ArrayList<>(Arrays.asList(1)), new ArrayList<>(Arrays.asList(9,9))));//-9,8
+		System.out.println(subtract(new ArrayList<>(Arrays.asList(-1)), new ArrayList<>(Arrays.asList(9,9))));//-1,0,0
 	}
 
 }
