@@ -18,21 +18,21 @@ public class LastElementInSpiralMatrixOrder {
 			{1,2},
 			{3,4}
 		};
-		System.out.println(lastElement(M));
+		System.out.println(lastElement(M));//3
 		
 		M = new int[][] {
 			{1,2,3},
 			{4,5,6},
 			{7,8,9}
 		};
-		System.out.println(lastElement(M));
+		System.out.println(lastElement(M));//5
 		
 		M = new int[][] {
 			{1,2,3,4},
 			{5,6,7,8},
 			{9,10,11,12}
 		};
-		System.out.println(lastElement(M));
+		System.out.println(lastElement(M));//7
 		
 		M = new int[][] {
 			{1,2,3,4},
@@ -40,7 +40,7 @@ public class LastElementInSpiralMatrixOrder {
 			{9,10,11,12},
 			{13,14,15,16}
 		};
-		System.out.println(lastElement(M));
+		System.out.println(lastElement(M));//10
 	}
 
 }
