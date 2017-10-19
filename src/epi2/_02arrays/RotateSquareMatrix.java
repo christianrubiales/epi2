@@ -30,7 +30,7 @@ public class RotateSquareMatrix {
 	static Integer[][] rotateSquareMatrixFlipTranspose(Integer[][] M) {
 		int n = M.length-1;
 		
-		// flip
+		// flip vertically
 		for (int i = 0; i <= n/2; i++) {
 			for (int j = 0; j < M[i].length; j++) {
 				Integer t = M[i][j];
