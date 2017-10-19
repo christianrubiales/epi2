@@ -26,6 +26,7 @@ public class RotateSquareMatrix {
 		return M;
 	}
 	
+	// @see https://discuss.leetcode.com/topic/6796/a-common-method-to-rotate-the-image
 	static Integer[][] rotateSquareMatrixFlipTranspose(Integer[][] M) {
 		int n = M.length-1;
 		
