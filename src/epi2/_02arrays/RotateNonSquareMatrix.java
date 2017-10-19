@@ -1,7 +1,6 @@
 package epi2._02arrays;
 
 import java.util.Arrays;
-//import java.util.Random;
 
 public class RotateNonSquareMatrix {
 	
