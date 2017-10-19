@@ -26,6 +26,30 @@ public class RotateSquareMatrix {
 		return M;
 	}
 	
+	static Integer[][] rotateSquareMatrixFlipTranspose(Integer[][] M) {
+		int n = M.length-1;
+		
+		// flip
+		for (int i = 0; i <= n/2; i++) {
+			for (int j = 0; j < M[i].length; j++) {
+				Integer t = M[i][j];
+				M[i][j] = M[n-i][j];
+				M[n-i][j] = t;
+			}
+		}
+		
+		// transpose
+		for (int i = 0; i < M.length; i++) {
+			for (int j = i; j < M[i].length; j++) {
+				Integer t = M[i][j];
+				M[i][j] = M[j][i];
+				M[j][i] = t;
+			}
+		}
+		
+		return M;
+	}
+	
 	static Integer[][] rotateSquareMatrixWithCopy(Integer[][] M) {
 		int n = M.length;
 		Integer[][] N = new Integer[M.length][M.length];
@@ -70,11 +94,13 @@ public class RotateSquareMatrix {
 	
 	public static void main(String[] args) {
 		System.out.println(Arrays.deepToString(rotateSquareMatrix(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
+		System.out.println(Arrays.deepToString(rotateSquareMatrixFlipTranspose(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixWithCopy(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixBySwapping(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(transposeMatrix(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		
 		System.out.println(Arrays.deepToString(rotateSquareMatrix(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
+		System.out.println(Arrays.deepToString(rotateSquareMatrixFlipTranspose(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixWithCopy(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixBySwapping(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(transposeMatrix(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
