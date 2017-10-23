@@ -28,7 +28,7 @@ public class FlipMatrix {
 		return M;
 	}
 	
-	static Integer[][] flipMatrixDiagonally(Integer[][] M) {
+	static Integer[][] flipSquareMatrixDiagonally(Integer[][] M) {
 		for (int i = 0; i < M.length; i++) {
 			for (int j = i; j < M.length; j++) {
 				int t = M[i][j];
@@ -40,7 +40,7 @@ public class FlipMatrix {
 		return M;
 	}
 	
-	static Integer[][] flipMatrixAntidiagonally(Integer[][] M) {
+	static Integer[][] flipSquareMatrixAntidiagonally(Integer[][] M) {
 		int n = M.length - 1;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n - i; j++) {
@@ -64,14 +64,14 @@ public class FlipMatrix {
 		System.out.println(Arrays.deepToString(flipMatrixHorizontally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(flipMatrixHorizontally(new Integer[][] {{1},{2},{3},{4}})));//1,2,3,4
 		
-		System.out.println(Arrays.deepToString(flipMatrixDiagonally(new Integer[][] {{1}})));
-		System.out.println(Arrays.deepToString(flipMatrixDiagonally(new Integer[][] {{1,2},{3,4}})));
-		System.out.println(Arrays.deepToString(flipMatrixDiagonally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
-		System.out.println(Arrays.deepToString(flipMatrixDiagonally(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
+		System.out.println(Arrays.deepToString(flipSquareMatrixDiagonally(new Integer[][] {{1}})));
+		System.out.println(Arrays.deepToString(flipSquareMatrixDiagonally(new Integer[][] {{1,2},{3,4}})));
+		System.out.println(Arrays.deepToString(flipSquareMatrixDiagonally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
+		System.out.println(Arrays.deepToString(flipSquareMatrixDiagonally(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 
-		System.out.println(Arrays.deepToString(flipMatrixAntidiagonally(new Integer[][] {{1}})));
-		System.out.println(Arrays.deepToString(flipMatrixAntidiagonally(new Integer[][] {{1,2},{3,4}})));
-		System.out.println(Arrays.deepToString(flipMatrixAntidiagonally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
-		System.out.println(Arrays.deepToString(flipMatrixAntidiagonally(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
+		System.out.println(Arrays.deepToString(flipSquareMatrixAntidiagonally(new Integer[][] {{1}})));
+		System.out.println(Arrays.deepToString(flipSquareMatrixAntidiagonally(new Integer[][] {{1,2},{3,4}})));
+		System.out.println(Arrays.deepToString(flipSquareMatrixAntidiagonally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
+		System.out.println(Arrays.deepToString(flipSquareMatrixAntidiagonally(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 	}
 }
