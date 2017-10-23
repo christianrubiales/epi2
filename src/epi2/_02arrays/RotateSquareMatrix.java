@@ -81,6 +81,7 @@ public class RotateSquareMatrix {
 
 	// @see https://rosettacode.org/wiki/Matrix_transposition#Java
 	// nth row becomes nth column (SAME AS) nth column becomes nth row
+	// same as flipping matrix diagonally (square and non-square)
 	static Integer[][] transposeMatrix(Integer[][] M) {
 		Integer[][] N = new Integer[M[0].length][M.length];
 		
@@ -107,6 +108,9 @@ public class RotateSquareMatrix {
 		System.out.println(Arrays.deepToString(transposeMatrix(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		
 		System.out.println(Arrays.deepToString(transposeMatrix(new Integer[][] {{1,1,1,1},{2,4,8,16},{3,9,27,81},{4,16,64,256},{5,25,125,625}})));
+		System.out.println(Arrays.deepToString(transposeMatrix(new Integer[][] {{1,1,1,1},{2,2,2,2},{3,3,3,3}})));
+		System.out.println(Arrays.deepToString(transposeMatrix(new Integer[][] {{1,2,3,4},{1,2,3,4},{1,2,3,4}})));
+		System.out.println(Arrays.deepToString(transposeMatrix(new Integer[][] {{1,1,1},{2,2,2},{3,3,3},{4,4,4}})));
 	}
 
 }
