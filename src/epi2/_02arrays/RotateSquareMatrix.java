@@ -4,8 +4,25 @@ import java.util.Arrays;
 
 public class RotateSquareMatrix {
 	
-	// @see http://javabypatel.blogspot.in/2016/11/rotate-matrix-by-90-degrees-inplace.html
 	static Integer[][] rotateSquareMatrix(Integer[][] M) {
+		int n = M.length-1;
+		
+		for (int i = 0; i <= n/2; i++) {
+			for (int j = i; j < n - i; j++) {
+				int x = M[i][j];
+
+				M[i][j] = M[n-j][i];
+				M[n-j][i] = M[n-i][n-j];
+				M[n-i][n-j] = M[j][n-i];
+				M[j][n-i] = x;
+			}
+		}
+		
+		return M;
+	}
+
+	// @see http://javabypatel.blogspot.in/2016/11/rotate-matrix-by-90-degrees-inplace.html
+	static Integer[][] rotateSquareMatrixOld(Integer[][] M) {
 		int n = M.length-1;
 		
 		for (int i = 0; i <= n/2; i++) {
