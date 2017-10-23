@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class RotateSquareMatrix {
 	
-	static Integer[][] rotateSquareMatrix(Integer[][] M) {
+	static Integer[][] rotateSquareMatrixClockwise(Integer[][] M) {
 		int n = M.length-1;
 		
 		for (int i = 0; i <= n/2; i++) {
@@ -99,12 +99,12 @@ public class RotateSquareMatrix {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(Arrays.deepToString(rotateSquareMatrix(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
+		System.out.println(Arrays.deepToString(rotateSquareMatrixClockwise(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixFlipTranspose(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixWithCopy(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixCounterClockwise(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		
-		System.out.println(Arrays.deepToString(rotateSquareMatrix(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
+		System.out.println(Arrays.deepToString(rotateSquareMatrixClockwise(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixFlipTranspose(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixWithCopy(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixCounterClockwise(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
