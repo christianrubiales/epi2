@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class RotateNonSquareMatrix {
 	
-	static Integer[][] rotateClockwise(Integer[][] M) {
+	static Integer[][] rotateNonSquareMatrixClockwise(Integer[][] M) {
 		Integer[][] N = new Integer[M[0].length][M.length];
 		
 		for (int i = 0; i < M.length; i++) {
@@ -16,7 +16,7 @@ public class RotateNonSquareMatrix {
 		return N;
 	}
 	
-	static Integer[][] rotateCounterClockwise(Integer[][] M) {
+	static Integer[][] rotateNonSquareMatrixCounterClockwise(Integer[][] M) {
 		Integer[][] N = new Integer[M[0].length][M.length];
 		
 		for (int i = 0; i < M.length; i++) {
@@ -29,11 +29,11 @@ public class RotateNonSquareMatrix {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(Arrays.deepToString(rotateClockwise(new Integer[][] {{1,2,3},{4,5,6}})));
-		System.out.println(Arrays.deepToString(rotateClockwise(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12}})));
+		System.out.println(Arrays.deepToString(rotateNonSquareMatrixClockwise(new Integer[][] {{1,2,3},{4,5,6}})));
+		System.out.println(Arrays.deepToString(rotateNonSquareMatrixClockwise(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12}})));
 		
-		System.out.println(Arrays.deepToString(rotateCounterClockwise(new Integer[][] {{1,2,3},{4,5,6}})));
-		System.out.println(Arrays.deepToString(rotateCounterClockwise(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12}})));
+		System.out.println(Arrays.deepToString(rotateNonSquareMatrixCounterClockwise(new Integer[][] {{1,2,3},{4,5,6}})));
+		System.out.println(Arrays.deepToString(rotateNonSquareMatrixCounterClockwise(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12}})));
 	}
 
 }
