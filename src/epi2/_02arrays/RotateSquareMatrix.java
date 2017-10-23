@@ -98,53 +98,16 @@ public class RotateSquareMatrix {
 		return N;
 	}
 	
-	// @see https://en.wikipedia.org/wiki/In-place_matrix_transposition#Square_matrices
-	static Integer[][] transposeSquareMatrix(Integer[][] M) {
-		for (int i = 0; i < M.length; i++) {
-			for (int j = i; j < M.length; j++) {
-				int t = M[i][j];
-				M[i][j] = M[j][i];
-				M[j][i] = t;
-			}
-		}
-		
-		return M;
-	}
-
-	// @see https://rosettacode.org/wiki/Matrix_transposition#Java
-	// nth row becomes nth column (SAME AS) nth column becomes nth row
-	// same as flipping matrix diagonally (square and non-square)
-	static Integer[][] transposeNonSquareMatrix(Integer[][] M) {
-		Integer[][] N = new Integer[M[0].length][M.length];
-		
-		for (int i = 0; i < M.length; i++) {
-			for (int j = 0; j < M[0].length; j++) {
-				N[j][i] = M[i][j];
-			}
-		}
-		
-		return N;
-	}
-	
 	public static void main(String[] args) {
 		System.out.println(Arrays.deepToString(rotateSquareMatrix(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixFlipTranspose(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixWithCopy(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixCounterClockwise(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
-		System.out.println(Arrays.deepToString(transposeSquareMatrix(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
-		System.out.println(Arrays.deepToString(transposeNonSquareMatrix(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		
 		System.out.println(Arrays.deepToString(rotateSquareMatrix(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixFlipTranspose(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixWithCopy(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(rotateSquareMatrixCounterClockwise(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
-		System.out.println(Arrays.deepToString(transposeSquareMatrix(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
-		System.out.println(Arrays.deepToString(transposeNonSquareMatrix(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
-		
-		System.out.println(Arrays.deepToString(transposeNonSquareMatrix(new Integer[][] {{1,1,1,1},{2,4,8,16},{3,9,27,81},{4,16,64,256},{5,25,125,625}})));
-		System.out.println(Arrays.deepToString(transposeNonSquareMatrix(new Integer[][] {{1,1,1,1},{2,2,2,2},{3,3,3,3}})));
-		System.out.println(Arrays.deepToString(transposeNonSquareMatrix(new Integer[][] {{1,2,3,4},{1,2,3,4},{1,2,3,4}})));
-		System.out.println(Arrays.deepToString(transposeNonSquareMatrix(new Integer[][] {{1,1,1},{2,2,2},{3,3,3},{4,4,4}})));
 	}
 
 }
