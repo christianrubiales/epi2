@@ -33,6 +33,8 @@ public class DecrementIntegerAsList {
 		System.out.println(increment(new ArrayList<>(Arrays.asList(1,3,0))));//1,2,9
 		System.out.println(increment(new ArrayList<>(Arrays.asList(9,0,0))));//8,9,9
 		System.out.println(increment(new ArrayList<>(Arrays.asList(1,0,0,0))));//9,9,9
+		System.out.println(increment(new ArrayList<>(Arrays.asList(0))));//-1
+		System.out.println(increment(new ArrayList<>(Arrays.asList(-9))));//-1,0 // TODO
 	}
 
 }
