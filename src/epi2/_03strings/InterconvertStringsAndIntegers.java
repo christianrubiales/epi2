@@ -2,7 +2,7 @@ package epi2._03strings;
 
 public class InterconvertStringsAndIntegers {
 	
-	static String toString(int x) {
+	static String intToString(int x) {
 		if (x == 0) {
 			return "0";
 		}
@@ -22,7 +22,7 @@ public class InterconvertStringsAndIntegers {
 		return sb.reverse().toString();
 	}
 
-	static int toInt(String s) {
+	static int stringToInt(String s) {
 		boolean negative = s.charAt(0) == '-';
 		
 		int x = 0;
@@ -35,21 +35,21 @@ public class InterconvertStringsAndIntegers {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(toString(Integer.MIN_VALUE));
-		System.out.println(toString(-1234));
-		System.out.println(toString(-1));
-		System.out.println(toString(0));
-		System.out.println(toString(1));
-		System.out.println(toString(1234));
-		System.out.println(toString(Integer.MAX_VALUE));
+		System.out.println(intToString(Integer.MIN_VALUE));
+		System.out.println(intToString(-1234));
+		System.out.println(intToString(-1));
+		System.out.println(intToString(0));
+		System.out.println(intToString(1));
+		System.out.println(intToString(1234));
+		System.out.println(intToString(Integer.MAX_VALUE));
 		
-		System.out.println(toInt("-2147483648"));
-		System.out.println(toInt("-1234"));
-		System.out.println(toInt("-1"));
-		System.out.println(toInt("0"));
-		System.out.println(toInt("1"));
-		System.out.println(toInt("1234"));
-		System.out.println(toInt("2147483647"));
+		System.out.println(stringToInt("-2147483648"));
+		System.out.println(stringToInt("-1234"));
+		System.out.println(stringToInt("-1"));
+		System.out.println(stringToInt("0"));
+		System.out.println(stringToInt("1"));
+		System.out.println(stringToInt("1234"));
+		System.out.println(stringToInt("2147483647"));
 		
 	}
 
