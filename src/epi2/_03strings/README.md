@@ -1,8 +1,8 @@
 # Chapter 7: Strings
 
-- [ ] 7.1 InterconvertStringAndInteger
+- [X] 7.1 InterconvertStringAndInteger
 - [ ] 7.2 BaseConversion
-- [ ] 7.3 SpreadsheetColumnEncoding
+- [X] 7.3 SpreadsheetColumnEncoding
 - [ ] 7.4 ReplaceAndRemove
 - [ ] 7.5 PalindromeAlphanumeric
 - [ ] 7.6 ReverseWordsInASentence
