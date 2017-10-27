@@ -8,14 +8,14 @@ public class BaseConversionSedgewick {
 	}
 
 	static String decimalToOtherBase(String s, int base) {
-		return toString(Integer.parseInt(s), base);
+		return intToString(Integer.parseInt(s), base);
 	}
 
 	static String otherBaseToDecimal(String s, int base) {
-		return toString(Integer.parseInt(s), base);
+		return intToString(Integer.parseInt(s), base);
 	}
 
-	static String toString(int n, int base) {
+	static String intToString(int n, int base) {
 		if (n == 0) {
 			return "0";
 		}
@@ -37,8 +37,18 @@ public class BaseConversionSedgewick {
 
 		return sb.reverse().toString();
 	}
+
+	static char toChar(int i) {
+		if (i < 0 || i > 36) {
+			throw new IllegalArgumentException("invalid digit");
+		}
+		if (i < 10) {
+			return (char) ('0' + i);
+		}
+		return (char) ('A' + i - 10);
+	}
 	
-    public static int parseInt(String s, int base) {
+    static int stringToInt(String s, int base) {
         int n = 0;
         for (int i = 0; i < s.length(); i++) {
             n = base*n + toInt(s.charAt(i));
@@ -53,19 +63,9 @@ public class BaseConversionSedgewick {
         return c - 'A' + 10;
     }
 
-	public static char toChar(int i) {
-		if (i < 0 || i > 36) {
-			throw new IllegalArgumentException("invalid digit");
-		}
-		if (i < 10) {
-			return (char) ('0' + i);
-		}
-		return (char) ('A' + i - 10);
-	}
-
 	public static void main(String[] args) {
 		for (int i = -4; i < 11; i++) {
-			System.out.println(toString(i, 2));
+			System.out.println(intToString(i, 2));
 		}
 
 	}
