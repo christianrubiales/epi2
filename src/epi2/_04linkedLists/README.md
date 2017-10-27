@@ -2,7 +2,7 @@
 
 - [ ] 8.1 MergeSortedLists
 - [ ] 8.2 ReverseSingleSublist
-- [ ] 8.3 TestCyclicity
+- [X] 8.3 TestCyclicity
 - [ ] 8.4 TestForOverlappingLists
 - [ ] 8.5 FindOverlappingWithCycles
 - [ ] 8.6 DeleteNode
