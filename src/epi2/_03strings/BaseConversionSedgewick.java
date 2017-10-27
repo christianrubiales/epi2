@@ -14,6 +14,21 @@ public class BaseConversionSedgewick {
 	static String otherBaseToDecimal(String s, int base) {
 		return intToString(Integer.parseInt(s), base);
 	}
+	
+    static int stringToInt(String s, int base) {
+        int n = 0;
+        for (int i = 0; i < s.length(); i++) {
+            n = base*n + toInt(s.charAt(i));
+        }
+        
+        return n;
+    }
+
+    static int toInt(char c) {
+        if (c < '0' || c > 'Z') throw new IllegalArgumentException("invalid char");
+        if ((c >= '0') && (c <= '9')) return c - '0';
+        return c - 'A' + 10;
+    }
 
 	static String intToString(int n, int base) {
 		if (n == 0) {
@@ -47,21 +62,6 @@ public class BaseConversionSedgewick {
 		}
 		return (char) ('A' + i - 10);
 	}
-	
-    static int stringToInt(String s, int base) {
-        int n = 0;
-        for (int i = 0; i < s.length(); i++) {
-            n = base*n + toInt(s.charAt(i));
-        }
-        
-        return n;
-    }
-
-    public static int toInt(char c) {
-        if (c < '0' || c > 'Z') throw new IllegalArgumentException("invalid char");
-        if ((c >= '0') && (c <= '9')) return c - '0';
-        return c - 'A' + 10;
-    }
 
 	public static void main(String[] args) {
 		for (int i = -4; i < 11; i++) {
