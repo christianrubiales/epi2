@@ -4,15 +4,7 @@ package epi2._03strings;
 public class BaseConversionSedgewick {
 
 	static String convert(String s, int base1, int base2) {
-		return decimalToOtherBase(otherBaseToDecimal(s, base1), base2);
-	}
-
-	static String decimalToOtherBase(String s, int base) {
-		return intToString(Integer.parseInt(s), base);
-	}
-
-	static String otherBaseToDecimal(String s, int base) {
-		return intToString(Integer.parseInt(s), base);
+		return intToString(stringToInt(s, base1), base2);
 	}
 	
     static int stringToInt(String s, int base) {
@@ -25,8 +17,12 @@ public class BaseConversionSedgewick {
     }
 
     static int toInt(char c) {
-        if (c < '0' || c > 'Z') throw new IllegalArgumentException("invalid char");
-        if ((c >= '0') && (c <= '9')) return c - '0';
+        if (c < '0' || c > 'Z') {
+        		throw new IllegalArgumentException("invalid char");
+        }
+        if ((c >= '0') && (c <= '9')) {
+        		return c - '0';
+        }
         return c - 'A' + 10;
     }
 
@@ -66,6 +62,10 @@ public class BaseConversionSedgewick {
 	public static void main(String[] args) {
 		for (int i = -4; i < 11; i++) {
 			System.out.println(intToString(i, 2));
+		}
+		
+		for (int i = 30; i < 40; i++) {
+			System.out.println(intToString(i, 36));
 		}
 
 	}
