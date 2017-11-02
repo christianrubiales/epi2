@@ -64,6 +64,18 @@ public class FlipMatrix {
 
 		return M;
 	}
+	
+	static Integer[][] flipNonSquareMatrixAntidiagonally(Integer[][] M) {
+		Integer[][] N = new Integer[M[0].length][M.length];
+		
+		for (int i = 0; i < M.length; i++) {
+			for (int j = 0; j < M[0].length; j++) {
+				N[M[0].length - j - 1][M.length - i - 1] = M[i][j];
+			}
+		}
+		
+		return N;
+	}
 
 	public static void main(String[] args) {
 		System.out.println(Arrays.deepToString(flipMatrixVertically(new Integer[][] {{1,2,3,4}})));//1,2,3,4
@@ -71,26 +83,40 @@ public class FlipMatrix {
 		System.out.println(Arrays.deepToString(flipMatrixVertically(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(flipMatrixVertically(new Integer[][] {{1},{2},{3},{4}})));//4,3,2,1
 		
+		System.out.println();
 		System.out.println(Arrays.deepToString(flipMatrixHorizontally(new Integer[][] {{1,2,3,4}})));//4,3,2,1
 		System.out.println(Arrays.deepToString(flipMatrixHorizontally(new Integer[][] {{1,2,3},{4,5,6}})));
 		System.out.println(Arrays.deepToString(flipMatrixHorizontally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(flipMatrixHorizontally(new Integer[][] {{1},{2},{3},{4}})));//1,2,3,4
 		
+		System.out.println();
 		System.out.println(Arrays.deepToString(transposeOrFlipSquareMatrixDiagonally(new Integer[][] {{1}})));
 		System.out.println(Arrays.deepToString(transposeOrFlipSquareMatrixDiagonally(new Integer[][] {{1,2},{3,4}})));
 		System.out.println(Arrays.deepToString(transposeOrFlipSquareMatrixDiagonally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(transposeOrFlipSquareMatrixDiagonally(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
-
+		
+		System.out.println();
+		System.out.println(Arrays.deepToString(transposeOrFlipNonSquareMatrixDiagonally(new Integer[][] {{1,2,3},{4,5,6}})));
 		System.out.println(Arrays.deepToString(transposeOrFlipNonSquareMatrixDiagonally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(transposeOrFlipNonSquareMatrixDiagonally(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
 		System.out.println(Arrays.deepToString(transposeOrFlipNonSquareMatrixDiagonally(new Integer[][] {{1,1,1,1},{2,4,8,16},{3,9,27,81},{4,16,64,256},{5,25,125,625}})));
 		System.out.println(Arrays.deepToString(transposeOrFlipNonSquareMatrixDiagonally(new Integer[][] {{1,1,1,1},{2,2,2,2},{3,3,3,3}})));
 		System.out.println(Arrays.deepToString(transposeOrFlipNonSquareMatrixDiagonally(new Integer[][] {{1,2,3,4},{1,2,3,4},{1,2,3,4}})));
 		System.out.println(Arrays.deepToString(transposeOrFlipNonSquareMatrixDiagonally(new Integer[][] {{1,1,1},{2,2,2},{3,3,3},{4,4,4}})));
-
+		
+		System.out.println();
 		System.out.println(Arrays.deepToString(flipSquareMatrixAntidiagonally(new Integer[][] {{1}})));
 		System.out.println(Arrays.deepToString(flipSquareMatrixAntidiagonally(new Integer[][] {{1,2},{3,4}})));
 		System.out.println(Arrays.deepToString(flipSquareMatrixAntidiagonally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
 		System.out.println(Arrays.deepToString(flipSquareMatrixAntidiagonally(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
+
+		System.out.println();
+		System.out.println(Arrays.deepToString(flipNonSquareMatrixAntidiagonally(new Integer[][] {{1,2,3},{4,5,6}})));
+		System.out.println(Arrays.deepToString(flipNonSquareMatrixAntidiagonally(new Integer[][] {{1,2,3},{4,5,6},{7,8,9}})));
+		System.out.println(Arrays.deepToString(flipNonSquareMatrixAntidiagonally(new Integer[][] {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}})));
+		System.out.println(Arrays.deepToString(flipNonSquareMatrixAntidiagonally(new Integer[][] {{1,1,1,1},{2,4,8,16},{3,9,27,81},{4,16,64,256},{5,25,125,625}})));
+		System.out.println(Arrays.deepToString(flipNonSquareMatrixAntidiagonally(new Integer[][] {{1,1,1,1},{2,2,2,2},{3,3,3,3}})));
+		System.out.println(Arrays.deepToString(flipNonSquareMatrixAntidiagonally(new Integer[][] {{1,2,3,4},{1,2,3,4},{1,2,3,4}})));
+		System.out.println(Arrays.deepToString(flipNonSquareMatrixAntidiagonally(new Integer[][] {{1,1,1},{2,2,2},{3,3,3},{4,4,4}})));
 	}
 }

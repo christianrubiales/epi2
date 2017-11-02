@@ -1,0 +1,21 @@
+Rotate Non-Square Matrix Clockwise:
+
+  N[j][M.length - i - 1] = M[i][j]
+
+
+
+Rotate Non-Square Matrix Counterclockwise:
+
+  N[M[i].length - j - 1][i] = M[i][j]
+
+
+
+Flip Square Matrix Antidiagonally:
+
+  M[n - j][n - i]
+
+
+
+Flip Non-Square Matrix Antidiagonally:
+
+  N[M[0].length - j - 1][M.length - i - 1] = M[i][j]
