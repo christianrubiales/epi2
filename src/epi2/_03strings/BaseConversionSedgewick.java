@@ -8,12 +8,14 @@ public class BaseConversionSedgewick {
 	}
 	
     static int stringToInt(String s, int base) {
-        int n = 0;
-        for (int i = 0; i < s.length(); i++) {
-            n = base*n + toInt(s.charAt(i));
+		boolean negative = s.charAt(0) == '-';
+		
+        int x = 0;
+        for (int i = negative ? 1 : 0; i < s.length(); i++) {
+            x = x*base + toInt(s.charAt(i));
         }
         
-        return n;
+        return negative ? -x : x;
     }
 
     static int toInt(char c) {
@@ -26,20 +28,18 @@ public class BaseConversionSedgewick {
         return c - 'A' + 10;
     }
 
-	static String intToString(int n, int base) {
-		if (n == 0) {
+	static String intToString(int x, int base) {
+		if (x == 0) {
 			return "0";
 		}
 
-		boolean negative = n < 0;
-		if (negative) {
-			n = -n;
-		}
-
+		boolean negative = x < 0;
 		StringBuilder sb = new StringBuilder();
-		while (n > 0) {
-			sb.append(toChar(n % base));
-			n = n / base;
+		
+		while (x != 0) {
+			int digit = x % base;
+			sb.append(toChar(negative ? -digit : digit));
+			x = x / base;
 		}
 
 		if (negative) {
@@ -60,6 +60,7 @@ public class BaseConversionSedgewick {
 	}
 
 	public static void main(String[] args) {
+		System.out.println(intToString(Integer.MIN_VALUE, 10));
 		for (int i = -4; i < 11; i++) {
 			System.out.println(intToString(i, 2));
 		}
@@ -67,7 +68,35 @@ public class BaseConversionSedgewick {
 		for (int i = 30; i < 40; i++) {
 			System.out.println(intToString(i, 36));
 		}
+		System.out.println();
 
+		System.out.println(stringToInt("" + Integer.MIN_VALUE, 10));
+		System.out.println(stringToInt("-100", 2));
+		System.out.println(stringToInt("-11", 2));
+		System.out.println(stringToInt("-10", 2));
+		System.out.println(stringToInt("-1", 2));
+		System.out.println(stringToInt("0", 2));
+		System.out.println(stringToInt("1", 2));
+		System.out.println(stringToInt("10", 2));
+		System.out.println(stringToInt("11", 2));
+		System.out.println(stringToInt("100", 2));
+		System.out.println(stringToInt("101", 2));
+		System.out.println(stringToInt("110", 2));
+		System.out.println(stringToInt("111", 2));
+		System.out.println(stringToInt("1000", 2));
+		System.out.println(stringToInt("1001", 2));
+		System.out.println(stringToInt("1010", 2));
+
+		System.out.println(stringToInt("U", 36));
+		System.out.println(stringToInt("V", 36));
+		System.out.println(stringToInt("W", 36));
+		System.out.println(stringToInt("X", 36));
+		System.out.println(stringToInt("Y", 36));
+		System.out.println(stringToInt("Z", 36));
+		System.out.println(stringToInt("10", 36));
+		System.out.println(stringToInt("11", 36));
+		System.out.println(stringToInt("12", 36));
+		System.out.println(stringToInt("13", 36));
 	}
 
 }
