@@ -13,12 +13,13 @@ public class InterconvertStringsAndIntegers {
 		while (x != 0) {
 			int digit = x % 10;
 			sb.append(negative ? -digit : digit);
-			x /= 10;
+			x = x / 10;
 		}
+
 		if (negative) {
 			sb.append('-');
 		}
-		
+
 		return sb.reverse().toString();
 	}
 
@@ -26,8 +27,7 @@ public class InterconvertStringsAndIntegers {
 		boolean negative = s.charAt(0) == '-';
 		
 		int x = 0;
-		int start = negative ? 1 : 0;
-		for (int i = start; i < s.length(); i++) {
+		for (int i = negative ? 1 : 0; i < s.length(); i++) {
 			x = x * 10 + (s.charAt(i) - '0');
 		}
 		
