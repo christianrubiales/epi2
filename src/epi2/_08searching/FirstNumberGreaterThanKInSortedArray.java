@@ -1,26 +1,56 @@
 package epi2._08searching;
 
 /**
- * Refer to page 13, then remove this sentence.
+ * @see https://stackoverflow.com/a/6554035/2256169
  */
 public class FirstNumberGreaterThanKInSortedArray {
 	
-	static int getFirstNumber(int k, int[] array) {
-		return 0;
-	}
-	
-	static void print(int k, int[] array, int first) {
-		System.out.print("k: " + k + ", array: [");
+	// return the index to be clearer
+	static int getFirstGreater(int[] A, int k) {
+		int low = 0;
+		int high = A.length - 1;
 		
-		for (int x : array) {
-			System.out.print(x + ",");
+		while (low < high) {
+			int mid = low + (high - low)/2;
+			
+			if (A[mid] <= k) {
+				low = mid+1;
+			} else {
+				high = mid;
+			}
 		}
 		
-		System.out.print("], first: " + first);
+		if (k >= A[high]) {
+			return -1;
+		} else {
+			return high;
+		}
 	}
 
 	public static void main(String[] args) {
-		print(3, new int[]{1,2,3,4,5}, getFirstNumber(3, new int[]{1,2,3,4,5}));
+		System.out.println(getFirstGreater(new int[] {1}, 1));//-1
+		System.out.println(getFirstGreater(new int[] {1,1}, 1));//-1
+		System.out.println(getFirstGreater(new int[] {1,1,1}, 1));//-1
+		System.out.println(getFirstGreater(new int[] {1,1,1,1}, 1));//-1
+		System.out.println(getFirstGreater(new int[] {1,1,1,1,1}, 1));//-1
+		
+		System.out.println(getFirstGreater(new int[] {0,1}, 1));//-1
+		System.out.println(getFirstGreater(new int[] {0,0,1}, 1));//-1
+		System.out.println(getFirstGreater(new int[] {0,0,0,1}, 1));//-1
+		System.out.println(getFirstGreater(new int[] {0,0,0,0,1}, 1));//-1
+		System.out.println(getFirstGreater(new int[] {0,0,0,0,0,1}, 1));//-1
+		
+		System.out.println(getFirstGreater(new int[] {1,2}, 1));//1
+		System.out.println(getFirstGreater(new int[] {1,2,2}, 1));//1
+		System.out.println(getFirstGreater(new int[] {1,2,2,2}, 1));//1
+		System.out.println(getFirstGreater(new int[] {1,2,2,2,2}, 1));//1
+		System.out.println(getFirstGreater(new int[] {1,2,2,2,2}, 1));//1
+		
+		System.out.println(getFirstGreater(new int[] {1,1,2}, 1));//2
+		System.out.println(getFirstGreater(new int[] {1,1,2,2}, 1));//2
+		System.out.println(getFirstGreater(new int[] {1,1,2,2,2}, 1));//2
+		System.out.println(getFirstGreater(new int[] {1,1,2,2,2,2}, 1));//2
+		System.out.println(getFirstGreater(new int[] {1,1,2,2,2,2}, 1));//2
 	}
 
 }
