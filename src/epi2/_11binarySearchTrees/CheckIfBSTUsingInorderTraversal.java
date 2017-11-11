@@ -5,6 +5,8 @@ import java.util.List;
 
 // @see https://stackoverflow.com/a/759851
 // O(2n) time, O(n) space
+// TODO: use iterative inorder to check validity while traversing for just a single pass
+// and non-full O(n) space all the time
 public class CheckIfBSTUsingInorderTraversal {
 
 	static class Node {
