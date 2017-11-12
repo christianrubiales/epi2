@@ -2,7 +2,7 @@ package epi2._14greedyAlgorithmsAndInvariants;
 
 import java.util.Arrays;
 
-// O(nlogn)
+// O(nlogn) for non-negative sums
 public class HasThreeSumNonDistinct {
 	
 	static boolean hasThreeSum(int[] A, int sum) {
