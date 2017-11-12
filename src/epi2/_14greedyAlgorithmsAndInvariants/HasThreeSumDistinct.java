@@ -2,7 +2,9 @@ package epi2._14greedyAlgorithmsAndInvariants;
 
 import java.util.Arrays;
 
-// O(nlogn) for non-negative sums
+// Valid only for non-negative inputs
+// O(nlogn)
+// FIXME
 public class HasThreeSumDistinct {
 	
 	static boolean hasThreeSum(int[] A, int sum) {
@@ -11,14 +13,13 @@ public class HasThreeSumDistinct {
 		int j = A.length - 1;
 		
 		while (i < j) {
+			int c = Arrays.binarySearch(A, i+1, j, sum - (A[i]+A[j]));
+			if (c > -1) {
+//				System.out.println(A[i] + "+" + A[j] + "+" + A[c] + "=" + sum);
+				return true;
+			}
 			if (A[i] + A[j] <= sum) {
-				int c = j-i < 2 ? -1 : Arrays.binarySearch(A, i+1, j, sum - (A[i]+A[j]));
-				if (c > -1) {
-//					System.out.println(A[i] + "+" + A[j] + "+" + A[c] + "=" + sum);
-					return true;
-				} else {
-					i++;
-				}
+				i++;
 			} else if (A[i] + A[j] > sum) {
 				j--;
 			}
@@ -29,7 +30,7 @@ public class HasThreeSumDistinct {
 
 	public static void main(String[] args) {
 		int[] A = new int[] {0,1,2,3};
-		for (int i = 0; i < 15; i++) {
+		for (int i = -1; i < 10; i++) {
 			System.out.println(i + " : " + hasThreeSum(A, i));
 		}
 	}
