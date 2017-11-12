@@ -2,8 +2,7 @@ package epi2._14greedyAlgorithmsAndInvariants;
 
 import java.util.Arrays;
 
-// O(n^2)
-public class HasTwoSum {
+public class HasTwoSumNonDistinct {
 	
 	static boolean hasTwoSum(int[] A, int sum) {
 		Arrays.sort(A);
@@ -24,7 +23,8 @@ public class HasTwoSum {
 		
 		return false;
 	}
-	
+
+	// O(n^2)
 	static boolean hasThreeSum(int[] A, int sum) {
 		for (int a : A) {
 			if (hasTwoSum(A, sum - a)) {
