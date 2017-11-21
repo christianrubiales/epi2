@@ -1,4 +1,4 @@
-package epi2._06binaryTress;
+package epi2._06binaryTrees;
 
 public class HeightOfBinaryTree {
 

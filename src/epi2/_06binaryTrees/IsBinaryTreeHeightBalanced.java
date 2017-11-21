@@ -1,4 +1,4 @@
-package epi2._06binaryTress;
+package epi2._06binaryTrees;
 
 // For each node in the tree, the difference in the height of
 // its left and right subtrees is at most 1
