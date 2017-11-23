@@ -11,7 +11,7 @@ public class Powerset {
 		List<List<Object>> power = new LinkedList<>();
 		int n = set.size();
 		
-		for (long i = 0; i < (1 << n); i++) {
+		for (long i = 0; i < (1L << n); i++) {
 			List<Object> list = new LinkedList<>();
 			power.add(list);
 			
