@@ -24,6 +24,10 @@ public class NumberOfWaysToTraverseMatrix {
 	}
 
 	public static void main(String[] args) {
+		System.out.println(numberOfWays(1, 1));// 1
+		System.out.println(numberOfWays(2, 2));// 2
+		System.out.println(numberOfWays(3, 3));// 6
+		System.out.println(numberOfWays(4, 4));// 20
 		System.out.println(numberOfWays(5, 5));// 70
 	}
 

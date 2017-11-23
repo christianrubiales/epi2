@@ -5,16 +5,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 // @see http://www.geeksforgeeks.org/finding-all-subsets-of-a-given-set-in-java/
+// O(2^n * n)
 public class Powerset {
 	
 	static List<List<Object>> powerset(List<Object> set) {
 		List<List<Object>> power = new LinkedList<>();
 		int n = set.size();
 		
+		// loop up to 2^n
 		for (long i = 0; i < (1L << n); i++) {
 			List<Object> list = new LinkedList<>();
 			power.add(list);
 			
+			// check each bit of i
 			for (int j = 0; j < n; j++) {
 				if ((i & (1 << j)) != 0) {
 					list.add(set.get(j));
