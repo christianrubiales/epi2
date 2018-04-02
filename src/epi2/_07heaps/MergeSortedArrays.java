@@ -24,15 +24,17 @@ public class MergeSortedArrays {
 		// populate iterators
 		List<Iterator<Integer>> iters = new ArrayList<>();
 		for (List<Integer> list : lists) {
-			iters.add(list.iterator());
+			if (list != null && !list.isEmpty()) {
+				iters.add(list.iterator());
+			}
 		}
 		
 		// initially populate min heap
 		PriorityQueue<HeapEntry> minHeap = new PriorityQueue<>(
 			new Comparator<HeapEntry>() {
 				@Override
-				public int compare(HeapEntry o1, HeapEntry o2) {
-					return o1.value.compareTo(o2.value);
+				public int compare(HeapEntry h1, HeapEntry h2) {
+					return h1.value.compareTo(h2.value);
 				};
 			}
 		);
@@ -63,6 +65,14 @@ public class MergeSortedArrays {
 				Arrays.asList(3,3,3,3,3,3,3,3,3,3,3,3,3),
 				Arrays.asList(2,2,2,2,2,2,2,2,2,2,2,2,2),
 				Arrays.asList(1,1,1,1,1,1,1,1,1,1,1,1,1))));
+			System.out.println(mergeSortedLists(Arrays.asList(
+					Arrays.asList(1, 2, 3),
+					Arrays.asList(),
+					Arrays.asList(1, 2, 3))));
+			System.out.println(mergeSortedLists(Arrays.asList(
+					Arrays.asList(1, 2, 3),
+					null,
+					Arrays.asList(1, 2, 3))));
 	}
 
 }

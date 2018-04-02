@@ -3,22 +3,18 @@ package epi2._09hashTables;
 import java.util.HashMap;
 import java.util.Map;
 
-public class IsAnonymousLetterConstructible {
+public class IsAnonymousLetterConstructibleASCII {
 	
 	static boolean isConstructible(String letter, String magazine) {
-		if (letter.length() > magazine.length()) {
-			return false;
-		}
-		
 		// build the character counts for the letter
 		Map<Character, Integer> letterMap = new HashMap<>();
 		for (int i = 0; i < letter.length(); i++) {
-			Integer count = letterMap.get(letter.charAt(i));
-			if (count == null) {
-				count = 0;
+			Character c = letter.charAt(i);
+			if (letterMap.containsKey(c)) {
+				letterMap.put(c, letterMap.get(c) + 1);
+			} else {
+				letterMap.put(c, 1);
 			}
-			count++;
-			letterMap.put(letter.charAt(i), count);
 		}
 		
 		// pass through the magazine, decreasing the letter tally
