@@ -9,10 +9,8 @@ public class MinimumCoinChangeGreedy {
 		int coins = 0;
 		
 		for (int i = COINS.length - 1; i > -1; i--) {
-			while (amount >= COINS[i]) {
-				coins += amount / COINS[i];
-				amount %= COINS[i];
-			}
+			coins += amount / COINS[i];
+			amount %= COINS[i];
 		}
 		
 		return coins;
