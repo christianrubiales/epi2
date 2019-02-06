@@ -14,14 +14,14 @@ public class HeightOfBinaryTree {
 	
 	static int height(Node node) {
 		if (node == null) {
-			return -1;
+			return 0;
 		}
 		
 		return 1 + Math.max(height(node.left), height(node.right));
 	}
 
 	public static void main(String[] args) {
-		System.out.println(height(null)); // -1
+		System.out.println(height(null)); // 0
 		System.out.println(height(new Node(null, null))); // 0
 		
 		// Figure 6.1
