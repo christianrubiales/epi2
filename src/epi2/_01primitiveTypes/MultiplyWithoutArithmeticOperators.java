@@ -34,13 +34,13 @@ public class MultiplyWithoutArithmeticOperators {
 	
 	// O(n) - where n is width of operands
 	static long add(long x, long y) {
-		while (x != 0) {
+		while (y != 0) {
 			long carry = x & y;
-			x = x ^ y;
-			y = carry << 1;
+			x = x ^ y; // sum
+			y = carry << 1L;
 		}
 		
-		return y;
+		return x;
 	}
 
 	public static void main(String[] args) {
