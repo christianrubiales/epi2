@@ -5,30 +5,37 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ComputeOptimumAssignment {
+	
+	static class Pair {
+		int task1;
+		int task2;
+	}
 
 	// O(nlogn)
-	static List<int[]> computeOptimumAssignment(int[] tasks) {
-		List<int[]> assignments = new ArrayList<>();
+	static List<Pair> computeOptimumAssignment(int[] tasks) {
+		List<Pair> assignments = new ArrayList<>();
 		
 		if (tasks != null) {
 			Arrays.sort(tasks);
 			for (int i = 0; i < tasks.length/2; i++) {
-				int[] pair = new int[2];
-				pair[0] = tasks[i];
-				pair[1] = tasks[tasks.length - i - 1];
+				Pair pair = new Pair();
+				pair.task1 = tasks[i];
+				pair.task2 = tasks[tasks.length - i - 1];
 				assignments.add(pair);
 			}
-			/*if (tasks.length % 2 != 0) {
-				assignments.add(new int[] {tasks[tasks.length/2], 0});
-			}*/
+			if (tasks.length % 2 != 0) {
+				Pair pair = new Pair();
+				pair.task1 = tasks[tasks.length/2];
+				assignments.add(pair);
+			}
 		}
 		
 		return assignments;
 	}
 	
-	static void print(List<int[]> assignments) {
-		for (int[] pair : assignments) {
-			System.out.printf("[%d,%d],", pair[0], pair[1]);
+	static void print(List<Pair> assignments) {
+		for (Pair pair : assignments) {
+			System.out.printf("[%d,%d],", pair.task1, pair.task2);
 		}
 		System.out.println();
 	}
