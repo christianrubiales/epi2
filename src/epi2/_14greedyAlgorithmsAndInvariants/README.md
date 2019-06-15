@@ -2,7 +2,7 @@
 
 - [X] 18.1 ComputeOptimumAssignment
 - [X] 18.2 ScheduleMinimizedWaitingTime
-- [ ] 18.3 IntervalCoveringProblem
+- [X] 18.3 IntervalCoveringProblem
 - [X] 18.4 ThreeSumProblem
 - [ ] 18.5 FindMajorityElement
 - [ ] 18.6 GasUpProblem
