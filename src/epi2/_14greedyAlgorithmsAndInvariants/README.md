@@ -4,7 +4,7 @@
 - [X] 18.2 ScheduleMinimizedWaitingTime
 - [X] 18.3 IntervalCoveringProblem
 - [X] 18.4 ThreeSumProblem
-- [ ] 18.5 FindMajorityElement
+- [X] 18.5 FindMajorityElement
 - [ ] 18.6 GasUpProblem
 - [ ] 18.7 ComputeMaximumWaterTrapped
 - [ ] 18.8 ComputeLargestRectangle
