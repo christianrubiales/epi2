@@ -6,5 +6,5 @@
 - [X] 18.4 ThreeSumProblem
 - [X] 18.5 FindMajorityElement
 - [X] 18.6 GasUpProblem
-- [ ] 18.7 ComputeMaximumWaterTrapped
+- [X] 18.7 ComputeMaximumWaterTrapped
 - [ ] 18.8 ComputeLargestRectangle
