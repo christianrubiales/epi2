@@ -7,4 +7,4 @@
 - [X] 18.5 FindMajorityElement
 - [X] 18.6 GasUpProblem
 - [X] 18.7 ComputeMaximumWaterTrapped
-- [ ] 18.8 ComputeLargestRectangle
+- [X] 18.8 ComputeLargestRectangle
