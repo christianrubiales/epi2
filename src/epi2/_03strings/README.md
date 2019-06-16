@@ -3,7 +3,7 @@
 - [X] 7.1 InterconvertStringAndInteger
 - [X] 7.2 BaseConversion
 - [X] 7.3 SpreadsheetColumnEncoding
-- [ ] 7.4 ReplaceAndRemove
+- [X] 7.4 ReplaceAndRemove
 - [ ] 7.5 PalindromeAlphanumeric
 - [ ] 7.6 ReverseWordsInASentence
 - [ ] 7.7 ComputeMnemonicsPhoneNumber
