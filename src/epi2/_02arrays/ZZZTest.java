@@ -1,7 +1,7 @@
 package epi2._02arrays;
 
-//A O(n) time and O(1) extra space Java program to
-//sort an array according to given indexes
+// An O(n) time and O(1) extra space Java program to
+// sort an array according to given indexes
 
 import java.util.Arrays;
 

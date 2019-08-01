@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class FindSmallestDifferenceInIntegerArray {
 	
+	// sort then linear search
+	// O(nlogn)
 	static int smallestDifference(int[] A) {
 		Arrays.sort(A);
 		int smallest = Integer.MAX_VALUE;

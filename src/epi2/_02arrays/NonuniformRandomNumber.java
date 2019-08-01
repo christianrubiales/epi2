@@ -2,6 +2,7 @@ package epi2._02arrays;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class NonuniformRandomNumber {
 	
@@ -14,7 +15,7 @@ public class NonuniformRandomNumber {
 			prefixSum[i] = prefixSum[i-1] + probabilities[i];
 		}
 		
-		Random random = new Random();
+		Random random = ThreadLocalRandom.current();
 		double r = random.nextDouble();
 		int index = Arrays.binarySearch(prefixSum, r);
 		

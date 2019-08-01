@@ -2,13 +2,14 @@ package epi2._02arrays;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
-// the first k elements must be the random sample
 public class SampleOfflineDataAndUpdateInput {
-	
+
+	// the first k elements must be the random sample
 	// Fisher-Yates left to right instead of right to left
 	static Integer[] randomSample(Integer[] data, int k) {
-		Random random = new Random();
+		Random random = ThreadLocalRandom.current();
 		for (int i = 0; i < k; i++) {
 			int r = i + random.nextInt(data.length - i);
 			int t = data[i];

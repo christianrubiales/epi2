@@ -2,6 +2,7 @@ package epi2._02arrays;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class SampleOfflineData {
 	
@@ -9,7 +10,7 @@ public class SampleOfflineData {
 	static Integer[] randomSample(Integer[] data, int k) {
 		Integer[] a = Arrays.copyOf(data, data.length);
 		Integer[] sample = new Integer[k];
-		Random random = new Random();
+		Random random = ThreadLocalRandom.current();
 
 		for (int i = 0; i < k; i++) {
 			int r = i + random.nextInt(a.length - i);

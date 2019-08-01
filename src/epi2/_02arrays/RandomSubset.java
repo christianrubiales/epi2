@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomSubset {
 	
@@ -18,7 +19,7 @@ public class RandomSubset {
 	// O(k) time, O(k) space
 	static Set<Integer> randomSubset(int n, int k) {
 		Map<Integer, Integer> map = new HashMap<>();
-		Random random = new Random();
+		Random random = ThreadLocalRandom.current();
 		
 		for (int i = 0; i < k; i++) {
 			int r = i + random.nextInt(n - i);

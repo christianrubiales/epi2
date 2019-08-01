@@ -3,6 +3,7 @@ package epi2._02arrays;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class SampleOnlineData {
 	
@@ -16,7 +17,7 @@ public class SampleOnlineData {
 		
 		// each incoming element may or may not replace any in the current sample
 		int n = k;
-		Random random = new Random();
+		Random random = ThreadLocalRandom.current();
 		while (iter.hasNext()) {
 			Integer x = iter.next();
 			n++;

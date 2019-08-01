@@ -2,6 +2,7 @@ package epi2._02arrays;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomPermutationToApply {
 	
@@ -15,7 +16,7 @@ public class RandomPermutationToApply {
 		}
 		
 		// shuffle the permutation
-		Random random = new Random();
+		Random random = ThreadLocalRandom.current();
 		for (int i = n; i > 1; i--) {
 			int r = random.nextInt(i);
 			Integer t = a[i-1];

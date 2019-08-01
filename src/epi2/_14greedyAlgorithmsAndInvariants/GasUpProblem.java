@@ -18,7 +18,6 @@ public class GasUpProblem {
 		}
 		
 		return city;
-		
 	}
 
 	public static void main(String[] args) {

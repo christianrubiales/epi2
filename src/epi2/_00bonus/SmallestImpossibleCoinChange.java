@@ -12,15 +12,17 @@ import java.util.Arrays;
 public class SmallestImpossibleCoinChange {
 	
 	static int getSmallest(int[] array) {
-		Arrays.sort(array);
-		
 		int maxPossible = 0;
 		
-		for (int a : array) {
-			if (a > maxPossible + 1) {
-				break;
+		if (array != null && array.length > 0) {
+			Arrays.sort(array);
+			
+			for (int a : array) {
+				if (maxPossible + 1 < a) {
+					break;
+				}
+				maxPossible += a;
 			}
-			maxPossible += a;
 		}
 		
 		return maxPossible + 1; // minimum impossible
@@ -28,8 +30,10 @@ public class SmallestImpossibleCoinChange {
 	
 	static void print(int[] array, int max) {
 		System.out.print("array: [");
-		for (int a : array) {
-			System.out.print(a + ",");
+		if (array != null) {
+			for (int a : array) {
+				System.out.print(a + ",");
+			}
 		}
 		System.out.println("], min impossible: " + max);
 	}
@@ -52,6 +56,9 @@ public class SmallestImpossibleCoinChange {
 		
 		// [] -> 1
 		print(new int[]{}, getSmallest(new int[]{}));
+		
+		// null -> 1
+		print(null, getSmallest(new int[]{}));
 	}
 
 }

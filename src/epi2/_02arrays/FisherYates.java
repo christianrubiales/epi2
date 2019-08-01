@@ -2,11 +2,12 @@ package epi2._02arrays;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class FisherYates {
 	
 	static Integer[] fisherYatesRightToLeft(Integer[] a) {
-		Random random = new Random();
+		Random random = ThreadLocalRandom.current();
 		for (int i = a.length; i > 1; i--) {
 			int r = random.nextInt(i);
 			int t = a[i-1];
@@ -18,7 +19,7 @@ public class FisherYates {
 	}
 	
 	static Integer[] fisherYatesLeftToRight(Integer[] a) {
-		Random random = new Random();
+		Random random = ThreadLocalRandom.current();
 		for (int i = 0; i < a.length - 1; i++) {
 			int r = i + random.nextInt(a.length - i);
 			int t = a[i];
