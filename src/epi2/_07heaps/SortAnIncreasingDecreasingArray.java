@@ -2,7 +2,9 @@ package epi2._07heaps;
 
 import java.util.Arrays;
 
+// TODO
 // EPI Solution does not make much sense, simpler to just sort the whole array
+// Minor improvement from O(n log n) to O(n log k)
 public class SortAnIncreasingDecreasingArray {
 	
 	// reverse the decreasing subarrays, then merge the segments
