@@ -1,5 +1,7 @@
 package epi2._14greedyAlgorithmsAndInvariants;
 
+// naive solution is easier to understand, linear solutions are all confusing
+// the leetcode solution is less confusing 
 public class GasUpProblem {
 	
 	static final int MPG = 20;
