@@ -4,21 +4,22 @@ import java.util.Arrays;
 
 public class HasTwoSumDistinct {
 	
-	static boolean hasTwoSum(int[] A, int sum) {
-		if (A == null || A.length < 2) {
+	// O(n) time, O(1) space
+	static boolean hasTwoSum(int[] numbers, int sum) {
+		if (numbers == null || numbers.length < 2) {
 			return false;
 		}
 
-		Arrays.sort(A);
+		Arrays.sort(numbers);
 
 		int i = 0;
-		int j = A.length - 1;
+		int j = numbers.length - 1;
 		
 		while (i < j) {
-			if (A[i] + A[j] == sum) {
+			if (numbers[i] + numbers[j] == sum) {
 //				System.out.println(A[i] + "+" + A[j] + "=" + sum);
 				return true;
-			} else if (A[i] + A[j] < sum) {
+			} else if (numbers[i] + numbers[j] < sum) {
 				i++;
 			} else {
 				j--;

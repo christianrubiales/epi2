@@ -5,13 +5,20 @@ import java.util.Arrays;
 public class FindSmallestDifferenceInIntegerArray {
 	
 	// sort then linear search
-	// O(nlogn)
-	static int smallestDifference(int[] A) {
-		Arrays.sort(A);
+	// O(nlogn) time, O(1) space
+	static int smallestDifference(int[] numbers) {
+		if (numbers == null || numbers.length < 2) {
+			throw new IllegalArgumentException("input should not be null or has less than two elements");
+		}
+
+		Arrays.sort(numbers);
 		int smallest = Integer.MAX_VALUE;
 		
-		for (int i = 0; i < A.length - 1; i++) {
-			smallest = Math.min(smallest, A[i+1] - A[i]);
+		for (int i = 0; i < numbers.length - 1; i++) {
+			int diff = numbers[i+1] - numbers[i];
+			if (diff < smallest) {
+				smallest = diff;
+			}
 		}
 		
 		return smallest;
