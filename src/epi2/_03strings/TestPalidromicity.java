@@ -18,9 +18,11 @@ public class TestPalidromicity {
 			while (i < j && !Character.isLetterOrDigit(s.charAt(j))) {
 				j--;
 			}
-			if (s.charAt(i++) != s.charAt(j--)) {
+			if (s.charAt(i) != s.charAt(j)) {
 				return false;
 			}
+			i++;
+			j--;
 		}
 		
 		return true;
@@ -30,6 +32,7 @@ public class TestPalidromicity {
 		System.out.println(isPalindrome("A man, a plan, a canal, Panama!"));//true
 		System.out.println(isPalindrome("Able was I, ere I saw Elba!"));//true
 		System.out.println(isPalindrome("Ray a Ray"));//false
+		System.out.println(isPalindrome("Ray a  yar"));//true
 		System.out.println(isPalindrome(null));//true
 		System.out.println(isPalindrome(""));//true
 		System.out.println(isPalindrome("?"));//true
