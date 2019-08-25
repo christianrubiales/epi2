@@ -9,14 +9,20 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 	static int divide(int dividend, int divisor) {
 
 		// 1) short-circuit processing and checking
+		if (divisor == 0) {
+			throw new ArithmeticException("Division by zero");
+		}
 		if (divisor > dividend) {
 			return 0;
 		}
 		if (divisor == dividend) {
 			return 1;
 		}
-		if (divisor == 0) {
-			throw new ArithmeticException("Division by zero");
+		if (divisor == 1) {
+			return dividend;
+		}
+		if (divisor == -1) {
+			return -dividend;
 		}
 
 		// 2) use only non-negative values
@@ -58,14 +64,20 @@ public class DivisionWithoutDivisionMultiplicationModOperators {
 	static long divide(long dividend, long divisor) {
 
 		// 1) short-circuit processing and checking
+		if (divisor == 0) {
+			throw new ArithmeticException("Division by zero");
+		}
 		if (divisor > dividend) {
-			return 0L;
+			return 0;
 		}
 		if (divisor == dividend) {
-			return 1L;
+			return 1;
 		}
-		if (divisor == 0L) {
-			throw new ArithmeticException("Division by zero");
+		if (divisor == 1) {
+			return dividend;
+		}
+		if (divisor == -1) {
+			return -dividend;
 		}
 
 		// 2) use only positive values
