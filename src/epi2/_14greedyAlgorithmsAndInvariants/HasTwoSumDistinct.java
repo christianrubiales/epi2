@@ -5,8 +5,12 @@ import java.util.Arrays;
 public class HasTwoSumDistinct {
 	
 	static boolean hasTwoSum(int[] A, int sum) {
+		if (A == null || A.length < 2) {
+			return false;
+		}
+
 		Arrays.sort(A);
-		
+
 		int i = 0;
 		int j = A.length - 1;
 		

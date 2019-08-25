@@ -5,6 +5,9 @@ import java.util.Arrays;
 public class HasTwoSumNonDistinct {
 	
 	static boolean hasTwoSum(int[] A, int sum) {
+		if (A == null || A.length < 2) {
+			return false;
+		}
 		Arrays.sort(A);
 		
 		int i = 0;
