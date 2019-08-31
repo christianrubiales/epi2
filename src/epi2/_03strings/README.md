@@ -8,7 +8,7 @@
 - [X] 7.6 ReverseWordsInASentence
 - [X] 7.7 ComputeMnemonicsPhoneNumber
 - [X] 7.8 LookAndSayProblem
-- [ ] 7.9 RomanToDecimal
+- [X] 7.9 RomanToDecimal
 - [ ] 7.10 ComputeValidIPAddresses
 - [ ] 7.11 StringSinusoidal
 - [ ] 7.12 RunLengthEncoding
