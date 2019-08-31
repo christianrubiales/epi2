@@ -6,8 +6,8 @@
 - [X] 7.4 ReplaceAndRemove
 - [X] 7.5 PalindromeAlphanumeric
 - [X] 7.6 ReverseWordsInASentence
-- [ ] 7.7 ComputeMnemonicsPhoneNumber
-- [ ] 7.8 LookAndSayProblem
+- [X] 7.7 ComputeMnemonicsPhoneNumber
+- [X] 7.8 LookAndSayProblem
 - [ ] 7.9 RomanToDecimal
 - [ ] 7.10 ComputeValidIPAddresses
 - [ ] 7.11 StringSinusoidal
