@@ -5,24 +5,41 @@ import java.util.Map;
 
 public class RomanToDecimal {
 	
-	static Map<Character, Integer> map = new HashMap<>();
+//	static Map<Character, Integer> map = new HashMap<>();
+//	
+//	static {
+//		map.put('I', 1);
+//		map.put('V', 5);
+//		map.put('X', 10);
+//		map.put('L', 50);
+//		map.put('C', 100);
+//		map.put('D', 500);
+//		map.put('M', 1000);
+//	}
 	
-	static {
-		map.put('I', 1);
-		map.put('V', 5);
-		map.put('X', 10);
-		map.put('L', 50);
-		map.put('C', 100);
-		map.put('D', 500);
-		map.put('M', 1000);
+	static int getValue(char c) {
+		switch (c) {
+			case 'I': return 1;
+			case 'V': return 5;
+			case 'X': return 10;
+			case 'L': return 50;
+			case 'C': return 100;
+			case 'D': return 500;
+			case 'M': return 1000;
+		}
+		return 0;
 	}
 	
 	static int romanToDecimal(String roman) {
-		int value = map.get(roman.charAt(roman.length() - 1));
+		if (roman == null || roman.isEmpty()) {
+			throw new IllegalArgumentException("input must not be null or empty");
+		}
+		
+		int value = getValue(roman.charAt(roman.length() - 1));
 
 		for (int i = roman.length() - 1; i > 0; i--) {
-			int left = map.get(roman.charAt(i-1));
-			int right = map.get(roman.charAt(i));
+			int left = getValue(roman.charAt(i-1));
+			int right = getValue(roman.charAt(i));
 
 			if (left < right) {
 				value -= left;
