@@ -11,5 +11,5 @@
 - [X] 7.9 RomanToDecimal
 - [X] 7.10 ComputeValidIPAddresses
 - [X] 7.11 StringSinusoidal
-- [ ] 7.12 RunLengthEncoding
+- [X] 7.12 RunLengthEncoding
 - [ ] 7.13 FindFirstOccurrenceOfSubstring
